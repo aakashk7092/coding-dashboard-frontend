@@ -1,0 +1,42 @@
+.platform-wrapper {
+  margin-top: 20px;
+}
+
+.platform-title {
+  color: #f8fafc;
+  font-size: 20px;
+  margin-bottom: 14px;
+}
+
+.platform-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 16px;
+}
+
+.platform-card {
+  background: #020617;
+  border-radius: 14px;
+  padding: 16px;
+  text-align: center;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.platform-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 22px rgba(56, 189, 248, 0.35);
+}
+
+.platform-icon {
+  font-size: 28px;
+  margin-bottom: 6px;
+  color: #38bdf8;
+}
+
+.platform-card span {
+  font-size: 14px;
+  color: #cbd5f5;
+}

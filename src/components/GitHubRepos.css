@@ -1,0 +1,70 @@
+.github-repos {
+  margin-top: 20px;
+}
+
+/* Toggle Button */
+.repo-toggle-btn {
+  padding: 12px 22px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #2563eb, #22c55e);
+  color: white;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.repo-toggle-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 18px rgba(34, 197, 94, 0.5);
+}
+
+/* Repo Grid */
+.repo-grid {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+/* Repo Card */
+.repo-card {
+  padding: 18px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #020617, #0f172a);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: transform 0.25s ease;
+}
+
+.repo-card:hover {
+  transform: translateY(-5px);
+}
+
+.repo-card h4 {
+  color: white;
+  margin-bottom: 6px;
+}
+
+.repo-card p {
+  font-size: 13px;
+  color: #94a3b8;
+  margin-bottom: 10px;
+}
+
+.repo-lang {
+  font-size: 12px;
+  color: #38bdf8;
+  display: inline-block;
+}
+
+.repo-card a {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 13px;
+  color: #22c55e;
+  text-decoration: none;
+}
+
+.repo-card a:hover {
+  text-decoration: underline;
+}

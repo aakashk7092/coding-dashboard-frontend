@@ -1,0 +1,23 @@
+.dashboard {
+  max-width: 1200px;
+  margin: auto;
+  padding: 24px;
+}
+
+/* common section spacing */
+.section {
+  margin-top: 28px;
+}
+
+/* grid for platform + about */
+.header-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 24px;
+}
+
+@media (max-width: 900px) {
+  .header-grid {
+    grid-template-columns: 1fr;
+  }
+}

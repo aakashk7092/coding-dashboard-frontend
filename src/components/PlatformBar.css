@@ -1,0 +1,50 @@
+.platform-wrapper {
+  margin: 16px;
+}
+
+.platform-title {
+  color: #e5e7eb;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.platform-bar {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 14px;
+}
+
+.platform-btn {
+  background: #020617;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px;
+  padding: 14px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: #cbd5f5;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.platform-btn img {
+  width: 32px;
+  height: 32px;
+}
+
+.platform-btn span {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.platform-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 20px rgba(56,189,248,0.25);
+}
+
+.platform-btn.active {
+  border-color: #38bdf8;
+  box-shadow: 0 0 25px rgba(56,189,248,0.5);
+  background: linear-gradient(135deg, #020617, #0f172a);
+}

@@ -1,9 +1,12 @@
+/* ================= BASE THEME ================= */
+
 body {
   margin: 0;
   background: #0b0f17;
   color: white;
   font-family: system-ui, sans-serif;
 }
+
 :root {
   --bg-dark: #020617;
   --bg-card: #020617;
@@ -16,3 +19,93 @@ body {
   --glow-blue: 0 0 24px rgba(56, 189, 248, 0.25);
 }
 
+/* ================= GLOBAL FIX ================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  overflow-x: hidden; /* mobile horizontal scroll fix */
+}
+
+/* Common container helper (if used) */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+/* ---------- TABLET & MOBILE ---------- */
+@media (max-width: 768px) {
+
+  body {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  /* container padding */
+  .container {
+    padding: 0 14px;
+  }
+
+  /* cards */
+  .card,
+  .stat-card,
+  .project-card {
+    padding: 14px;
+    border-radius: 14px;
+  }
+
+  /* buttons */
+  button,
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* grids stack vertically */
+  .stats-grid,
+  .projects-grid,
+  .platform-grid,
+  .tech-stack {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* profile section */
+  .profile-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .resume-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+}
+
+/* ---------- SMALL PHONES ---------- */
+@media (max-width: 480px) {
+
+  body {
+    font-size: 13px;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  .btn {
+    padding: 10px 14px;
+    font-size: 13px;
+  }
+}

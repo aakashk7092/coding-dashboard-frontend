@@ -18,27 +18,7 @@ export default function AboutMe() {
         clean UI with solid backend logic.
       </p>
 
-      {/* Buttons */}
-      <div className="resume-actions">
-        {/* VIEW */}
-        <a
-          href="/resume/Aakash_Kumar_Resume.pdf"
-          target="_blank"
-          rel="noreferrer"
-          className="resume-btn primary"
-        >
-          👁 View Resume
-        </a>
-
-        {/* DOWNLOAD */}
-        <a
-          href="/resume/Aakash_Kumar_Resume.pdf"
-          download
-          className="resume-btn outline"
-        >
-          ⬇ Download Resume
-        </a>
-      </div>
+      {/* ✅ Resume buttons removed from About section */}
     </div>
   );
 }

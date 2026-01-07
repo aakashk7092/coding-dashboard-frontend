@@ -1,23 +1,88 @@
+/* ================= ROOT ================= */
 .dashboard {
-  max-width: 1200px;
+  max-width: 1280px;
   margin: auto;
-  padding: 24px;
+  padding: 28px 24px 60px;
 }
 
-/* common section spacing */
+/* ================= SECTION SYSTEM ================= */
 .section {
-  margin-top: 28px;
+  margin-top: 48px;
 }
 
-/* grid for platform + about */
+/* ================= HERO SPACING ================= */
+#home {
+  margin-top: 20px;
+}
+
+/* ================= MAIN GRID ================= */
 .header-grid {
   display: grid;
-  grid-template-columns: 1.3fr 1fr;
-  gap: 24px;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 36px;
+  align-items: start;
 }
 
-@media (max-width: 900px) {
+/* ================= LEFT COLUMN FLOW ================= */
+.header-grid > div:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* ================= RIGHT COLUMN FLOW ================= */
+.header-grid > div:last-child {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* ================= PROJECTS ================= */
+#projects {
+  margin-top: 64px;
+}
+
+/* ================= GLOBAL CARD FEEL ================= */
+.section > * {
+  scroll-margin-top: 100px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+/* --------- LAPTOP / TABLET --------- */
+@media (max-width: 1024px) {
+  .dashboard {
+    padding: 24px 20px 50px;
+  }
+
   .header-grid {
     grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+/* --------- MOBILE --------- */
+@media (max-width: 768px) {
+  .dashboard {
+    padding: 22px 16px 46px;
+  }
+
+  .section {
+    margin-top: 42px;
+  }
+
+  .header-grid {
+    gap: 34px;
+  }
+}
+
+/* --------- SMALL PHONES --------- */
+@media (max-width: 480px) {
+  .dashboard {
+    padding: 20px 14px 40px;
+  }
+
+  .section {
+    margin-top: 36px;
   }
 }

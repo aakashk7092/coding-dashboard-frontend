@@ -1,67 +1,82 @@
 import { useState, useRef } from "react";
 
 import "./Dashboard.css";
+import Navbar from "../components/Navbar";
 import AboutMe from "../components/AboutMe";
 import Skills from "../components/Skills";
 import ProfileHeader from "../components/ProfileHeader";
 import PlatformBar from "../components/PlatformBar";
 import PlatformDetails from "../components/PlatformDetails";
 import Projects from "../components/Projects";
+import ExperienceTimeline from "../components/ExperienceTimeline";
+import Achievements from "../components/Achievements";
+import ContactSection from "../components/ContactSection";
 
 export default function Dashboard() {
   const [platform, setPlatform] = useState(null);
   const [selectedSkill, setSelectedSkill] = useState(null);
 
-  // 🔽 scroll targets
   const platformRef = useRef(null);
   const projectsRef = useRef(null);
 
-  // ✅ Skill click → scroll to projects
   const handleSkillSelect = (skill) => {
     setSelectedSkill(skill);
-
     setTimeout(() => {
-      projectsRef.current?.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
+      projectsRef.current?.scrollIntoView({ behavior: "smooth" });
     }, 100);
   };
 
-  // ✅ Platform click → scroll to platform details
   const handlePlatformSelect = (p) => {
     setPlatform(p);
-
     setTimeout(() => {
-      platformRef.current?.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
+      platformRef.current?.scrollIntoView({ behavior: "smooth" });
     }, 100);
   };
 
   return (
-    <div className="dashboard">
+    <div className="dashboard" id="home">
+      <Navbar />
+
+      {/* HERO */}
       <ProfileHeader />
 
-      {/* 🔹 Skills */}
-      <Skills onSelectSkill={handleSkillSelect} />
+      {/* SKILLS */}
+      <div id="skills">
+        <Skills onSelectSkill={handleSkillSelect} />
+      </div>
 
+      {/* MAIN GRID */}
       <div className="section header-grid">
+        {/* LEFT */}
         <div>
           <PlatformBar onSelect={handlePlatformSelect} />
 
-          {/* 🔽 Platform scroll target */}
-          <div ref={platformRef}>
+          <div ref={platformRef} id="platform">
             <PlatformDetails platform={platform} />
           </div>
         </div>
 
-        <AboutMe />
+        {/* RIGHT */}
+        <div>
+          <AboutMe />
+
+          <div id="experience">
+            <ExperienceTimeline />
+          </div>
+
+          {/* ACHIEVEMENTS – ONLY ONCE */}
+          <div id="achievements">
+            <Achievements />
+          </div>
+
+          <div id="contact">
+            <ContactSection />
+          </div>
+        </div>
       </div>
 
-      {/* 🔽 Projects scroll target */}
-      <div className="section" ref={projectsRef}>
+      {/* PROJECTS */}
+      <div className="section" ref={projectsRef} id="projects">
         <Projects selectedSkill={selectedSkill} />
       </div>
     </div>

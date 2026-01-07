@@ -4,21 +4,30 @@ import StatCard from "./StatCard";
 
 export default function LeetCodeStats() {
   const [data, setData] = useState(null);
+  const [error, setError] = useState("");
 
   useEffect(() => {
     axios
-      .get("https://coding-dashboard-backend-4sqp.onrender.com/")
+      .get("https://coding-dashboard-backend-4sqp.onrender.com/api/leetcode")
       .then((res) => setData(res.data))
-      .catch((err) => console.error("LeetCode API error:", err));
+      .catch((err) => {
+        console.error("LeetCode API error:", err);
+        setError("Failed to load LeetCode stats");
+      });
   }, []);
+
+  if (error) {
+    return <p style={{ color: "#f87171" }}>{error}</p>;
+  }
 
   if (!data) {
     return <p style={{ color: "#94a3b8" }}>Loading LeetCode stats…</p>;
   }
 
+  const solved = data.solved;
+
   return (
     <div style={{ marginTop: 20 }}>
-      {/* TOP SUMMARY */}
       <div
         style={{
           display: "grid",
@@ -27,35 +36,26 @@ export default function LeetCodeStats() {
           marginBottom: 22,
         }}
       >
-        <StatCard title="Total Solved" value={data.totalSolved} />
-        <StatCard
-          title="Acceptance"
-          value={
-            typeof data.acceptanceRate === "string"
-              ? data.acceptanceRate
-              : `${data.acceptanceRate}%`
-          }
-        />
+        <StatCard title="Total Solved" value={solved.total} />
       </div>
 
-      {/* DIFFICULTY WISE (REAL) */}
       <div>
         <DifficultyRow
           label="Easy"
-          solved={data.easySolved}
-          total={data.totalEasy}
+          solved={solved.easy}
+          total={solved.total}
           color="#22c55e"
         />
         <DifficultyRow
           label="Medium"
-          solved={data.mediumSolved}
-          total={data.totalMedium}
+          solved={solved.medium}
+          total={solved.total}
           color="#facc15"
         />
         <DifficultyRow
           label="Hard"
-          solved={data.hardSolved}
-          total={data.totalHard}
+          solved={solved.hard}
+          total={solved.total}
           color="#ef4444"
         />
       </div>
@@ -63,9 +63,8 @@ export default function LeetCodeStats() {
   );
 }
 
-/* -------- Helper component -------- */
 function DifficultyRow({ label, solved, total, color }) {
-  const percent = ((solved / total) * 100).toFixed(1);
+  const percent = total > 0 ? ((solved / total) * 100).toFixed(1) : 0;
 
   return (
     <div style={{ marginBottom: 14 }}>

@@ -5,16 +5,25 @@ const COLORS = {
   Java: "#f97316",
   HTML: "#ef4444",
   CSS: "#3b82f6",
+  JavaScript: "#facc15",
+  Python: "#22c55e",
 };
 
 export default function GitHubLanguages() {
   const [data, setData] = useState([]);
+  const [error, setError] = useState("");
 
   useEffect(() => {
-    fetch("https://coding-dashboard-backend-4sqp.onrender.com/")
-      .then((res) => res.json())
+    fetch("https://coding-dashboard-backend-4sqp.onrender.com/api/github/languages")
+      .then((res) => {
+        if (!res.ok) throw new Error("Failed to fetch from backend");
+        return res.json();
+      })
       .then((json) => {
-        const total = Object.values(json).reduce((a, b) => a + b, 0);
+        const values = Object.values(json);
+        if (!values.length) return;
+
+        const total = values.reduce((a, b) => a + b, 0);
 
         const formatted = Object.entries(json)
           .map(([name, value]) => ({
@@ -26,8 +35,15 @@ export default function GitHubLanguages() {
 
         setData(formatted);
       })
-      .catch(console.error);
+      .catch((err) => {
+        console.error(err);
+        setError("GitHub language data not available");
+      });
   }, []);
+
+  if (error) {
+    return <p style={{ color: "#f87171" }}>{error}</p>;
+  }
 
   if (!data.length) {
     return <p style={{ color: "#94a3b8" }}>Loading GitHub data…</p>;
@@ -68,7 +84,7 @@ export default function GitHubLanguages() {
               style={{
                 width: `${lang.percent}%`,
                 height: "100%",
-                background: COLORS[lang.name],
+                background: COLORS[lang.name] || "#64748b",
               }}
             />
           </div>

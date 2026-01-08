@@ -1,41 +1,56 @@
 import "./ExperienceTimeline.css";
+import { Link } from "react-router-dom";
 
 export default function ExperienceTimeline() {
-  const experiences = [
-    {
-      year: "2025 – Present",
-      title: "Learning Full-Stack Development",
-      desc: "Building real-world projects using React, Node.js and REST APIs. Focused on clean UI and scalable backend."
-    },
-    {
-      year: "2024",
-      title: "DSA & Competitive Programming",
-      desc: "Strengthened problem-solving skills by practicing Data Structures & Algorithms on LeetCode and HackerRank."
-    },
-    {
-      year: "2023",
-      title: "Started Coding Journey",
-      desc: "Began with C++ and fundamentals of programming, gradually moving towards software engineering."
-    }
-  ];
-
   return (
-    <div className="timeline-card">
-      <h2>Experience & Journey</h2>
+    <Link to="/experience" className="exp-preview-link">
+      <div className="exp-preview-card">
 
-      <div className="timeline">
-        {experiences.map((item, i) => (
-          <div className="timeline-item" key={i}>
-            <div className="timeline-dot"></div>
+        {/* HEADER */}
+        <h2>Experience & Journey</h2>
+        <p className="exp-preview-sub">
+          My learning path, growth & milestones in tech.
+        </p>
 
-            <div className="timeline-content">
-              <span className="timeline-year">{item.year}</span>
-              <h3>{item.title}</h3>
-              <p>{item.desc}</p>
-            </div>
+        {/* TAGS */}
+        <div className="exp-preview-items">
+          <div className="exp-chip">
+            <span className="dot green"></span>
+            <span>Full-Stack Learning</span>
           </div>
-        ))}
+
+          <div className="exp-chip">
+            <span className="dot blue"></span>
+            <span>DSA & Competitive Programming</span>
+          </div>
+
+          <div className="exp-chip">
+            <span className="dot purple"></span>
+            <span>Started Coding Journey</span>
+          </div>
+        </div>
+
+        {/* 📈 GROWTH GRAPH */}
+        <div className="growth-box">
+          <span className="growth-title">Growth Over Time</span>
+
+          <div className="growth-chart">
+            <div className="bar" style={{ "--h": "35%" }}></div>
+            <div className="bar" style={{ "--h": "55%" }}></div>
+            <div className="bar" style={{ "--h": "72%" }}></div>
+            <div className="bar" style={{ "--h": "90%" }}></div>
+          </div>
+
+          <div className="growth-labels">
+            <span>2022</span>
+            <span>2023</span>
+            <span>2024</span>
+            <span>2025</span>
+          </div>
+        </div>
+
+        <span className="exp-explore">Explore →</span>
       </div>
-    </div>
+    </Link>
   );
 }

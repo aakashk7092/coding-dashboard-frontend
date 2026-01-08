@@ -7,6 +7,8 @@ import linkedinIcon from "../assets/linkedin.png";
 import unstopIcon from "../assets/unstop.png";
 import githubIcon from "../assets/github.png";
 
+import LeetCodeBadges from "../components/LeetCodeBadges";
+
 export default function AchievementsPage() {
   const [open, setOpen] = useState(null);
 
@@ -16,7 +18,7 @@ export default function AchievementsPage() {
 
   return (
     <div className="ach-page">
-      {/* BACK BUTTON */}
+      {/* BACK */}
       <div className="back-wrap">
         <Link to="/" className="back-btn">← Back to Dashboard</Link>
       </div>
@@ -33,29 +35,37 @@ export default function AchievementsPage() {
       {/* LIST */}
       <section className="ach-list">
 
-        {/* LeetCode */}
+        {/* ========== LEETCODE ========== */}
         <div className={`ach-item ${open === "leetcode" ? "open" : ""}`}>
           <div className="ach-head" onClick={() => toggle("leetcode")}>
-            <img src={leetcodeIcon} alt="LeetCode" />
-            <h2>LeetCode</h2>
-            <span>{open === "leetcode" ? "−" : "+"}</span>
+            <div className="head-left">
+              <img src={leetcodeIcon} alt="LeetCode" />
+              <h2>LeetCode</h2>
+            </div>
+            <span className="toggle">{open === "leetcode" ? "−" : "+"}</span>
           </div>
+
           <div className="ach-body">
             <ul>
               <li>Solved 550+ DSA problems</li>
               <li>Completed LeetCode 75 Challenge</li>
               <li>Earned multiple skill badges</li>
             </ul>
+
+            {open === "leetcode" && <LeetCodeBadges />}
           </div>
         </div>
 
-        {/* LinkedIn */}
+        {/* ========== LINKEDIN ========== */}
         <div className={`ach-item ${open === "linkedin" ? "open" : ""}`}>
           <div className="ach-head" onClick={() => toggle("linkedin")}>
-            <img src={linkedinIcon} alt="LinkedIn" />
-            <h2>LinkedIn</h2>
-            <span>{open === "linkedin" ? "−" : "+"}</span>
+            <div className="head-left">
+              <img src={linkedinIcon} alt="LinkedIn" />
+              <h2>LinkedIn</h2>
+            </div>
+            <span className="toggle">{open === "linkedin" ? "−" : "+"}</span>
           </div>
+
           <div className="ach-body">
             <ul>
               <li>Consistent technical posts</li>
@@ -65,13 +75,16 @@ export default function AchievementsPage() {
           </div>
         </div>
 
-        {/* Unstop */}
+        {/* ========== UNSTOP ========== */}
         <div className={`ach-item ${open === "unstop" ? "open" : ""}`}>
           <div className="ach-head" onClick={() => toggle("unstop")}>
-            <img src={unstopIcon} alt="Unstop" />
-            <h2>Unstop</h2>
-            <span>{open === "unstop" ? "−" : "+"}</span>
+            <div className="head-left">
+              <img src={unstopIcon} alt="Unstop" />
+              <h2>Unstop</h2>
+            </div>
+            <span className="toggle">{open === "unstop" ? "−" : "+"}</span>
           </div>
+
           <div className="ach-body">
             <ul>
               <li>Participated in hackathons</li>
@@ -81,13 +94,16 @@ export default function AchievementsPage() {
           </div>
         </div>
 
-        {/* Certificates */}
+        {/* ========== CERTIFICATES ========== */}
         <div className={`ach-item ${open === "certs" ? "open" : ""}`}>
           <div className="ach-head" onClick={() => toggle("certs")}>
-            <img src={githubIcon} alt="Certificates" />
-            <h2>Certificates</h2>
-            <span>{open === "certs" ? "−" : "+"}</span>
+            <div className="head-left">
+              <img src={githubIcon} alt="Certificates" />
+              <h2>Certificates</h2>
+            </div>
+            <span className="toggle">{open === "certs" ? "−" : "+"}</span>
           </div>
+
           <div className="ach-body">
             <ul>
               <li>DSA & Algorithms Certification</li>

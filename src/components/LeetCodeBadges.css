@@ -1,0 +1,67 @@
+.lc-showcase {
+  margin-top: 30px;
+}
+
+/* HERO */
+.lc-hero {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  background: linear-gradient(180deg,#020617,#0b1220);
+  border-radius: 18px;
+  padding: 18px 22px;
+  border: 1px solid rgba(255,255,255,.08);
+  box-shadow: 0 20px 60px rgba(0,0,0,.7);
+  margin-bottom: 28px;
+}
+
+.lc-hero img {
+  width: 120px;
+  border-radius: 12px;
+}
+
+.lc-hero-text h3 {
+  margin: 0;
+  font-size: 20px;
+  color: #f9fafb;
+}
+
+.lc-hero-text p {
+  margin-top: 6px;
+  font-size: 13px;
+  color: #94a3b8;
+}
+
+/* GRID */
+.lc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+  gap: 18px;
+}
+
+.lc-card {
+  background: linear-gradient(180deg,#020617,#0b1220);
+  border-radius: 16px;
+  padding: 16px;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,.08);
+  transition: .35s ease;
+}
+
+.lc-card:hover {
+  transform: translateY(-6px) scale(1.04);
+  box-shadow: 0 0 40px rgba(56,189,248,.45);
+}
+
+.lc-card img {
+  width: 100%;
+  max-height: 160px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+.lc-card span {
+  font-size: 13px;
+  color: #cbd5f5;
+  font-weight: 600;
+}

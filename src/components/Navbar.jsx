@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { NavLink } from "react-router-dom";
 import "./Navbar.css";
 
 import leetcodeIcon from "../assets/leetcode.png";
@@ -8,49 +9,11 @@ import logo from "../assets/logo.png";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  const [active, setActive] = useState("home");
 
   const closeMenu = () => setOpen(false);
 
-  // shrink navbar on scroll
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  // active section highlight
-  useEffect(() => {
-    const sections = [
-      "home",
-      "skills",
-      "platform",
-      "experience",
-      "achievements",
-      "projects",
-      "contact"
-    ];
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) setActive(e.target.id);
-        });
-      },
-      { threshold: 0.4 }
-    );
-
-    sections.forEach((id) => {
-      const el = document.getElementById(id);
-      if (el) observer.observe(el);
-    });
-
-    return () => observer.disconnect();
-  }, []);
-
   return (
-    <header className={`nav ${scrolled ? "nav-scrolled" : ""}`}>
+    <header className="nav">
       <div className="nav-inner">
 
         {/* BRAND */}
@@ -90,13 +53,12 @@ export default function Navbar() {
 
         {/* DESKTOP NAV */}
         <nav className="nav-links">
-          <a href="#home" className={`nav-btn ${active==="home"?"active":""}`}>Home</a>
-          <a href="#skills" className={`nav-btn ${active==="skills"?"active":""}`}>Skills</a>
-          <a href="#platform" className={`nav-btn ${active==="platform"?"active":""}`}>Platforms</a>
-          <a href="#experience" className={`nav-btn ${active==="experience"?"active":""}`}>Experience</a>
-          <a href="#achievements" className={`nav-btn ${active==="achievements"?"active":""}`}>Achievements</a>
-          <a href="#projects" className={`nav-btn ${active==="projects"?"active":""}`}>Projects</a>
-          <a href="#contact" className={`nav-btn ${active==="contact"?"active":""}`}>Contact</a>
+          <NavLink to="/" className="nav-btn">Home</NavLink>
+          <NavLink to="/skills" className="nav-btn">Skills</NavLink>
+          <NavLink to="/projects" className="nav-btn">Projects</NavLink>
+          <NavLink to="/achievements" className="nav-btn">Achievements</NavLink>
+          <NavLink to="/experience" className="nav-btn">Experience</NavLink>
+          <NavLink to="/contact" className="nav-btn">Contact</NavLink>
 
           <a
             href="/resume.pdf"
@@ -121,13 +83,12 @@ export default function Navbar() {
       {/* MOBILE MENU */}
       {open && (
         <div className="mobile-menu">
-          <a onClick={closeMenu} href="#home">Home</a>
-          <a onClick={closeMenu} href="#skills">Skills</a>
-          <a onClick={closeMenu} href="#platform">Platforms</a>
-          <a onClick={closeMenu} href="#experience">Experience</a>
-          <a onClick={closeMenu} href="#achievements">Achievements</a>
-          <a onClick={closeMenu} href="#projects">Projects</a>
-          <a onClick={closeMenu} href="#contact">Contact</a>
+          <NavLink onClick={closeMenu} to="/">Home</NavLink>
+          <NavLink onClick={closeMenu} to="/skills">Skills</NavLink>
+          <NavLink onClick={closeMenu} to="/projects">Projects</NavLink>
+          <NavLink onClick={closeMenu} to="/achievements">Achievements</NavLink>
+          <NavLink onClick={closeMenu} to="/experience">Experience</NavLink>
+          <NavLink onClick={closeMenu} to="/contact">Contact</NavLink>
 
           <a
             onClick={closeMenu}

@@ -11,7 +11,6 @@ export default function ExperiencePage() {
 
   return (
     <>
-      {/* 🔝 NAVBAR */}
       <Navbar />
 
       <div className="exp-page">
@@ -21,43 +20,46 @@ export default function ExperiencePage() {
           <h1>Experience & Journey</h1>
         </div>
 
-        {/* INTRO */}
+        {/* INTRO – honest */}
         <p className="exp-intro">
-          My journey is built on consistency, real projects, and problem-solving.
-          I focus on becoming a solid engineer — not just a coder.
+          My journey is still in progress. I’m learning by building projects,
+          solving real problems, and improving step by step — not by shortcuts,
+          but by consistency.
         </p>
 
         {/* ================= STATS ================= */}
         <div className="impact-stats">
           <div className="stat-box">
             <h2>550+</h2>
-            <p>DSA Problems Solved</p>
+            <p>DSA Problems Solved (LeetCode focused)</p>
           </div>
           <div className="stat-box">
-            <h2>12+</h2>
-            <p>Projects Built</p>
+            <h2>10+</h2>
+            <p>Mini & Major Projects Built</p>
           </div>
           <div className="stat-box">
             <h2>3+</h2>
-            <p>Hackathons / Contests</p>
+            <p>Hackathons / Coding Contests</p>
           </div>
           <div className="stat-box">
             <h2>1+</h2>
-            <p>Year of Daily Consistency</p>
+            <p>Year of Daily Learning Habit</p>
           </div>
         </div>
 
         {/* ================= TIMELINE ================= */}
         <div className="exp-timeline">
 
+          {/* 2023 */}
           <div className="exp-item">
             <span className="exp-dot green"></span>
             <div className="exp-card">
               <span className="exp-year">2023</span>
               <h2>Started Coding Journey</h2>
               <p>
-                Began with C++ and core programming fundamentals. 
-                Built logical thinking and problem-solving mindset.
+                I started with C++ and basic programming concepts.
+                At this stage, I was learning how to think logically,
+                how to debug, and how to stay patient with problems.
               </p>
               <div className="exp-tags">
                 <span>C++</span><span>Logic</span><span>Basics</span>
@@ -65,29 +67,34 @@ export default function ExperiencePage() {
             </div>
           </div>
 
+          {/* 2024 */}
           <div className="exp-item">
             <span className="exp-dot blue"></span>
             <div className="exp-card">
               <span className="exp-year">2024</span>
               <h2>DSA & Competitive Programming</h2>
               <p>
-                Strengthened algorithms, data structures, and consistency.
-                Solved hundreds of problems on LeetCode & HackerRank.
+                I seriously focused on Data Structures and Algorithms.
+                Solved hundreds of problems on LeetCode and practiced regularly.
+                This phase taught me discipline more than anything else.
               </p>
               <div className="exp-tags">
-                <span>DSA</span><span>LeetCode</span><span>Discipline</span>
+                <span>DSA</span><span>LeetCode</span><span>Consistency</span>
               </div>
             </div>
           </div>
 
+          {/* 2025 */}
           <div className="exp-item">
             <span className="exp-dot purple"></span>
             <div className="exp-card">
               <span className="exp-year">2025 – Present</span>
               <h2>Full-Stack Development</h2>
               <p>
-                Building real-world dashboards using React, Node.js and REST APIs.
-                Focused on clean UI and scalable backend systems.
+                I started building real projects using React and Node.js.
+                Learned how frontend and backend actually work together.
+                Still learning deployment, APIs, and clean system design
+                through real mistakes and fixes.
               </p>
               <div className="exp-tags">
                 <span>React</span><span>Node.js</span><span>APIs</span>
@@ -99,12 +106,11 @@ export default function ExperiencePage() {
 
         {/* ================= CLOSING ================= */}
         <div className="exp-close">
-          I’m not chasing shortcuts — I’m building foundations.  
-          Every project, every bug, every solved problem adds one more layer 
-          to becoming a reliable software engineer.
+          I’m not trying to look perfect — I’m trying to become better.
+          Every bug I fix, every project I finish, and every problem I solve
+          adds real experience to my journey as a software engineer.
         </div>
 
-        {/* GO TOP */}
         <button className="go-top" onClick={goTop}>↑</button>
       </div>
     </>

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import "./Navbar.css";
 
@@ -9,43 +9,35 @@ import logo from "../assets/logo.png";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   const closeMenu = () => setOpen(false);
 
+  // 🔥 scroll animation
+  useEffect(() => {
+    const onScroll = () => {
+      setScrolled(window.scrollY > 40);
+    };
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <header className="nav">
+    <header className={`nav ${scrolled ? "nav-scrolled" : ""}`}>
       <div className="nav-inner">
 
         {/* BRAND */}
         <div className="nav-brand">
-          <img src={logo} alt="Logo" className="nav-logo-img" />
+          <img src={logo} alt="Logo" className="nav-logo-img floating" />
 
-          {/* mini icons */}
           <div className="nav-mini-icons">
-            <a
-              href="https://leetcode.com/aakashkumar2005/"
-              target="_blank"
-              rel="noreferrer"
-              title="LeetCode"
-            >
+            <a href="https://leetcode.com/aakashkumar2005/" target="_blank" rel="noreferrer">
               <img src={leetcodeIcon} alt="LeetCode" />
             </a>
-
-            <a
-              href="https://github.com/aakashk7092"
-              target="_blank"
-              rel="noreferrer"
-              title="GitHub"
-            >
+            <a href="https://github.com/aakashk7092" target="_blank" rel="noreferrer">
               <img src={githubIcon} alt="GitHub" />
             </a>
-
-            <a
-              href="https://www.linkedin.com/in/aakash-kumar-aa3093315/"
-              target="_blank"
-              rel="noreferrer"
-              title="LinkedIn"
-            >
+            <a href="https://www.linkedin.com/in/aakash-kumar-aa3093315/" target="_blank" rel="noreferrer">
               <img src={linkedinIcon} alt="LinkedIn" />
             </a>
           </div>
@@ -60,29 +52,20 @@ export default function Navbar() {
           <NavLink to="/experience" className="nav-btn">Experience</NavLink>
           <NavLink to="/contact" className="nav-btn">Contact</NavLink>
 
-          <a
-            href="/resume.pdf"
-            target="_blank"
-            rel="noreferrer"
-            className="nav-resume"
-          >
+          <a href="/resume.pdf" target="_blank" rel="noreferrer" className="nav-resume">
             Resume
           </a>
         </nav>
 
-        {/* MOBILE HAMBURGER */}
-        <button
-          className="hamburger"
-          onClick={() => setOpen(!open)}
-          aria-label="Menu"
-        >
+        {/* HAMBURGER */}
+        <button className="hamburger" onClick={() => setOpen(!open)}>
           ☰
         </button>
       </div>
 
-      {/* MOBILE MENU */}
+      {/* MOBILE */}
       {open && (
-        <div className="mobile-menu">
+        <div className="mobile-menu slide-in">
           <NavLink onClick={closeMenu} to="/">Home</NavLink>
           <NavLink onClick={closeMenu} to="/skills">Skills</NavLink>
           <NavLink onClick={closeMenu} to="/projects">Projects</NavLink>
@@ -90,13 +73,7 @@ export default function Navbar() {
           <NavLink onClick={closeMenu} to="/experience">Experience</NavLink>
           <NavLink onClick={closeMenu} to="/contact">Contact</NavLink>
 
-          <a
-            onClick={closeMenu}
-            href="/resume.pdf"
-            target="_blank"
-            rel="noreferrer"
-            className="mobile-resume"
-          >
+          <a onClick={closeMenu} href="/resume.pdf" target="_blank" rel="noreferrer" className="mobile-resume">
             View Resume
           </a>
         </div>

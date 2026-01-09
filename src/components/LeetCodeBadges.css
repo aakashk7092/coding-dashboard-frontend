@@ -204,6 +204,58 @@
 @media(max-width:900px){
   .lc-video-grid{grid-template-columns:repeat(2,1fr);}
 }
+/* ================= FIX: BADGES SHOULD EXPAND ================= */
+
+/* parent wrappers ko safe banao */
+.lc-wrap,
+.ach-body,
+.ach-item{
+  overflow: visible !important;
+}
+
+/* grids should grow, not clip */
+.lc-video-grid,
+.lc-badge-grid{
+  width: 100%;
+  overflow: visible;
+}
+
+/* cards ko responsive width do */
+.lc-video-card,
+.lc-badge-card{
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* MOBILE FIX */
+@media (max-width: 768px){
+
+  .lc-wrap{
+    padding: 20px 14px;
+  }
+
+  /* ensure container expands */
+  .lc-video-grid,
+  .lc-badge-grid{
+    grid-template-columns: 1fr;
+    align-items: stretch;
+  }
+
+  /* cards centered & visible */
+  .lc-video-card,
+  .lc-badge-card{
+    margin: 0 auto;
+    width: 100%;
+    max-width: 360px;
+  }
+
+  /* prevent hiding behind */
+  .lc-video-card *,
+  .lc-badge-card *{
+    max-width: 100%;
+  }
+}
+
 
 @media(max-width:768px){
   .lc-hero{flex-direction:column;text-align:center;}

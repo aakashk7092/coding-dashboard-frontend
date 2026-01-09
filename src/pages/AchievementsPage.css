@@ -1,25 +1,13 @@
-/* PAGE */
+/* ================= PAGE ================= */
 .ach-page {
   max-width: 1000px;
   margin: auto;
   padding: 60px 22px;
   color: #f8fafc;
+  overflow: visible;
 }
 
-/* BACK */
-.back-wrap {
-  margin-bottom: 20px;
-}
-.back-btn {
-  color: #38bdf8;
-  text-decoration: none;
-  font-weight: 600;
-}
-.back-btn:hover {
-  text-decoration: underline;
-}
-
-/* HERO */
+/* ================= HERO ================= */
 .ach-hero {
   text-align: center;
   margin-bottom: 50px;
@@ -39,14 +27,15 @@
   margin-inline: auto;
 }
 
-/* LIST */
+/* ================= LIST ================= */
 .ach-list {
   display: flex;
   flex-direction: column;
   gap: 18px;
+  overflow: visible;
 }
 
-/* ITEM CARD */
+/* ================= ITEM CARD ================= */
 .ach-item {
   border-radius: 18px;
   background:
@@ -60,11 +49,11 @@
     0 14px 40px rgba(0,0,0,0.55),
     inset 0 0 0 1px rgba(255,255,255,0.03);
 
-  overflow: hidden;
+  overflow: visible;              /* 🔥 important */
   transition: all 0.35s ease;
 }
 
-/* HEADER */
+/* ================= HEADER ================= */
 .ach-head {
   display: flex;
   align-items: center;
@@ -95,12 +84,18 @@
   color: #38bdf8;
 }
 
-/* BODY */
+/* ================= BODY ================= */
 .ach-body {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.45s ease;
   background: rgba(15,23,42,0.9);
+}
+
+/* when open */
+.ach-item.open .ach-body {
+  max-height: none;      /* 🔥 no limit */
+  overflow: visible;    /* 🔥 allow grow */
 }
 
 .ach-body ul {
@@ -114,37 +109,31 @@
   margin-bottom: 8px;
 }
 
-/* OPEN STATE */
-.ach-item.open .ach-body {
-  max-height: 1200px; /* big so badges/videos fit */
-}
-
 .ach-item.open {
   box-shadow:
     0 20px 60px rgba(0,0,0,0.75),
     0 0 40px rgba(56,189,248,0.35);
 }
 
-/* ---------- LEETCODE BADGES AREA ---------- */
+/* ================= LEETCODE BADGES ================= */
 .leetcode-badges {
   padding: 10px 22px 24px;
 }
 
-/* section titles inside badges */
+/* section titles */
 .leetcode-badges h3 {
   margin: 18px 0 10px;
   color: #93c5fd;
   font-size: 16px;
 }
 
-/* video grid */
+/* ================= VIDEO GRID ================= */
 .badge-video-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 16px;
 }
 
-/* video card */
 .badge-video-card {
   background: linear-gradient(180deg, #020617, #0b1220);
   border-radius: 14px;
@@ -162,7 +151,7 @@
   border-radius: 10px;
 }
 
-/* image grid */
+/* ================= IMAGE GRID ================= */
 .badge-image-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
@@ -193,8 +182,47 @@
   color: #cbd5f5;
 }
 
-/* MOBILE */
-@media (max-width: 768px) {
-  .ach-hero h1 { font-size: 32px; }
-  .ach-head h2 { font-size: 18px; }
+/* ================= MOBILE ================= */
+@media (max-width: 768px){
+
+  .ach-page{
+    padding: 40px 14px;
+  }
+
+  .ach-hero h1{
+    font-size: 32px;
+  }
+
+  .ach-head{
+    padding: 16px;
+  }
+
+  .ach-head h2{
+    font-size: 18px;
+  }
+
+  .ach-body ul{
+    padding: 14px 18px 10px;
+  }
+
+  /* grids */
+  .badge-video-grid{
+    grid-template-columns: 1fr;
+  }
+
+  .badge-image-grid{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ================= SMALL MOBILE ================= */
+@media (max-width: 480px){
+
+  .badge-image-grid{
+    grid-template-columns: 1fr;
+  }
+
+  .ach-hero h1{
+    font-size: 28px;
+  }
 }

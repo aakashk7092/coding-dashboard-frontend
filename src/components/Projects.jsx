@@ -29,7 +29,7 @@ const projectsData = [
   },
 ];
 
-export default function Projects({ selectedSkill }) {
+export default function Projects() {
   const [openId, setOpenId] = useState(null);
 
   const toggleProject = (id) => {

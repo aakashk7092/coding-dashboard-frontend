@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://aakash-kumar-portfolio.vercel.app/sitemap.xml
+Sitemap: https://aakashcodesdev.vercel.app/sitemap.xml

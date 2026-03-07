@@ -62,7 +62,6 @@ function HomeNav() {
         <span className="brand-mark">AK</span>
         <span className="brand-copy">
           <strong>Aakash Kumar</strong>
-          <span>Software Engineer Portfolio</span>
         </span>
       </Link>
 
@@ -101,7 +100,6 @@ export default function PortfolioHome() {
             </div>
 
             <div className="hero-copy">
-              <p className="eyebrow">Software Engineer Portfolio</p>
               <h1>Aakash Kumar</h1>
               <p className="hero-role">Software Engineer | Full Stack Developer | DSA Enthusiast</p>
               <p className="hero-text">
@@ -176,10 +174,6 @@ export default function PortfolioHome() {
 
         <section className="section home-section-grid">
           <div className="section-heading home-section-heading">
-            <div>
-              <p className="eyebrow">Projects</p>
-              <h2>Selected projects with live output and recruiter-readable structure.</h2>
-            </div>
             <a className="section-link" href="#recruiter">
               Open for opportunities
             </a>
@@ -222,11 +216,6 @@ export default function PortfolioHome() {
 
         <section className="section home-two-column">
           <div className="home-rail-card" id="activity">
-            <div className="section-heading">
-              <p className="eyebrow">Recent Activity</p>
-              <h2>Execution log</h2>
-            </div>
-
             <div className="activity-list">
               {activities.map((activity) => (
                 <article className="activity-item" key={activity}>
@@ -238,11 +227,6 @@ export default function PortfolioHome() {
           </div>
 
           <div className="home-rail-card" id="skills">
-            <div className="section-heading">
-              <p className="eyebrow">Skills</p>
-              <h2>Core stack</h2>
-            </div>
-
             <div className="skills-groups">
               {skillGroups.map((group) => (
                 <article className="skills-row-card" key={group.title}>
@@ -259,11 +243,6 @@ export default function PortfolioHome() {
         </section>
 
         <section className="section recruiter-section" id="recruiter">
-          <div className="section-heading">
-            <p className="eyebrow">Recruiter Section</p>
-            <h2>Open for software engineering internships and entry-level roles.</h2>
-          </div>
-
           <div className="recruiter-card">
             <p>
               This portfolio is paired with a coding dashboard so recruiters can evaluate projects, coding stats, growth signals, and contact details in one place.

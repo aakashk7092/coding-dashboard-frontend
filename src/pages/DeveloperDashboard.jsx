@@ -759,7 +759,7 @@ export default function DeveloperDashboard() {
             <div className="analytics-card-header">
               <div>
                 <h3>{platform === "leetcode" ? "LeetCode Submission Heatmap" : "GitHub Contribution Heatmap"}</h3>
-                <span>{platform === "leetcode" ? "Daily submission intensity from live LeetCode calendar data" : "Recruiter-friendly view of sustained coding activity"}</span>
+                <span>{platform === "leetcode" ? "Daily submission intensity from live LeetCode calendar data" : ""}</span>
               </div>
               <div className="analytics-rating-caption">
                 <strong>{platform === "leetcode" ? data.leetcode.totalSubmissions : data.github.commits}</strong>

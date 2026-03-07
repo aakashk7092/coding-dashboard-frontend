@@ -174,6 +174,9 @@ export default function PortfolioHome() {
 
         <section className="section home-section-grid">
           <div className="section-heading home-section-heading">
+            <div>
+              <p className="eyebrow">Projects</p>
+            </div>
             <a className="section-link" href="#recruiter">
               Open for opportunities
             </a>
@@ -216,6 +219,10 @@ export default function PortfolioHome() {
 
         <section className="section home-two-column">
           <div className="home-rail-card" id="activity">
+            <div className="section-heading">
+              <p className="eyebrow">Activity</p>
+            </div>
+
             <div className="activity-list">
               {activities.map((activity) => (
                 <article className="activity-item" key={activity}>
@@ -227,6 +234,10 @@ export default function PortfolioHome() {
           </div>
 
           <div className="home-rail-card" id="skills">
+            <div className="section-heading">
+              <p className="eyebrow">Skills</p>
+            </div>
+
             <div className="skills-groups">
               {skillGroups.map((group) => (
                 <article className="skills-row-card" key={group.title}>
@@ -243,6 +254,10 @@ export default function PortfolioHome() {
         </section>
 
         <section className="section recruiter-section" id="recruiter">
+          <div className="section-heading">
+            <p className="eyebrow">Recruiter</p>
+          </div>
+
           <div className="recruiter-card">
             <p>
               This portfolio is paired with a coding dashboard so recruiters can evaluate projects, coding stats, growth signals, and contact details in one place.

@@ -740,6 +740,18 @@
     min-width: 0;
   }
 
+  .analytics-tabs {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 4px;
+    margin-left: -2px;
+    margin-right: -2px;
+  }
+
+  .analytics-tab {
+    flex: 0 0 auto;
+  }
+
   .analytics-hero-profile {
     gap: 12px;
   }
@@ -798,6 +810,10 @@
     grid-auto-columns: 118px;
   }
 
+  .analytics-awards-content {
+    max-height: 360px;
+  }
+
   .analytics-award-item {
     min-height: 104px;
     padding: 9px;
@@ -840,22 +856,42 @@
     font-size: 1.25rem;
   }
 
-  .analytics-tabs {
-    overflow-x: auto;
-    flex-wrap: nowrap;
-    padding-bottom: 4px;
-  }
-
-  .analytics-tab {
-    flex: 0 0 auto;
-  }
-
   .analytics-grid-platforms,
   .analytics-grid-platforms-single,
   .analytics-grid-charts,
   .analytics-grid-charts-single,
   .analytics-grid-awards {
     gap: 10px;
+  }
+
+  .analytics-card-header {
+    gap: 8px;
+  }
+
+  .analytics-profile-links {
+    gap: 8px;
+  }
+
+  .analytics-profile-links a {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .analytics-inline-metric,
+  .analytics-total-breakdown div,
+  .analytics-achievement-item {
+    padding: 8px 9px;
+    font-size: 0.88rem;
+  }
+
+  .analytics-platform-title p,
+  .analytics-card p,
+  .analytics-card span {
+    font-size: 0.84rem;
+  }
+
+  .analytics-awards-content {
+    max-height: 320px;
   }
 
   .analytics-awards-card {

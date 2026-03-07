@@ -1075,6 +1075,10 @@ button {
   }
 
   .hero-photo-wrap {
+    width: 100%;
+  }
+
+  .hero-photo-wrap {
     max-width: 280px;
     margin: 0 auto;
   }
@@ -1109,6 +1113,16 @@ button {
   .recruiter-card,
   .dashboard-card {
     padding: 16px;
+  }
+
+  .project-grid,
+  .hero-stats-grid,
+  .recruiter-details {
+    gap: 10px;
+  }
+
+  .platform-stat-card {
+    padding: 14px;
   }
 
   .activity-item {
@@ -1151,6 +1165,15 @@ button {
     line-height: 0.98;
   }
 
+  .hero-role,
+  .hero-text,
+  .hero-live,
+  .project-card p,
+  .activity-item p,
+  .recruiter-card p {
+    font-size: 0.92rem;
+  }
+
   .section-heading h2,
   .dashboard-topbar h1 {
     font-size: 1.35rem;
@@ -1173,6 +1196,33 @@ button {
     border-radius: 10px;
   }
 
+  .platform-stat-card {
+    gap: 10px;
+    padding: 12px;
+  }
+
+  .platform-stat-icon,
+  .hero-side-stat-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+  }
+
+  .hero-side-stat {
+    grid-template-columns: 36px 1fr;
+    gap: 10px;
+  }
+
+  .recruiter-details a {
+    width: 100%;
+    justify-content: flex-start;
+    padding: 12px;
+  }
+
+  .home-main {
+    padding-bottom: 36px;
+  }
+
   .hero-side-stat strong,
   .platform-stat-card strong,
   .recruiter-kpi strong {
@@ -1183,5 +1233,14 @@ button {
   .skills-row-card h3,
   .dashboard-card h3 {
     font-size: 1rem;
+  }
+
+  .skills-inline-list {
+    gap: 6px;
+  }
+
+  .skills-inline-list li,
+  .stack-badge {
+    padding: 5px 9px;
   }
 }

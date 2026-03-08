@@ -215,7 +215,7 @@ export default function PortfolioHome() {
               <h1>Aakash Kumar</h1>
               <h2 className="hero-role">Software Engineer | DSA Enthusiast | Full Stack Developer</h2>
               <p className="hero-text">
-                Hi, I'm Aakash Kumar, a passionate Software Developer focused on Data Structures, Algorithms, and Full Stack Web Development using React, Node.js, and MongoDB.
+                Hi, I'm Aakash Kumar, a passionate Software Engineer focused on Data Structures, Algorithms, and Full Stack Web Development using React, Node.js, and MongoDB.
               </p>
               <p className="hero-text">
                 Current focus: a coding preparation platform that combines DSA practice, account integrations, and live developer signals in one place.

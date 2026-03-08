@@ -66,6 +66,29 @@ const homeNavLinks = [
   { label: "Resume", href: "/resume.pdf", type: "external" },
 ];
 
+const connectLinks = [
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/aakash-kumar-aa3093315/",
+    icon: <FaLinkedin />,
+  },
+  {
+    label: "GitHub",
+    href: "https://github.com/aakashk7092",
+    icon: <FaGithub />,
+  },
+  {
+    label: "LeetCode",
+    href: "https://leetcode.com/aakashkumar2005/",
+    icon: <SiLeetcode />,
+  },
+  {
+    label: "CodeChef",
+    href: "https://www.codechef.com/users/aakashk7092",
+    icon: <SiCodechef />,
+  },
+];
+
 function HomeNav() {
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -190,7 +213,7 @@ export default function PortfolioHome() {
 
             <div className="hero-copy">
               <h1>Aakash Kumar</h1>
-              <h2 className="hero-role">Software Developer | DSA Enthusiast | Full Stack Web Developer</h2>
+              <h2 className="hero-role">Software Engineer | DSA Enthusiast | Full Stack Developer</h2>
               <p className="hero-text">
                 Hi, I'm Aakash Kumar, a passionate Software Developer focused on Data Structures, Algorithms, and Full Stack Web Development using React, Node.js, and MongoDB.
               </p>
@@ -258,6 +281,28 @@ export default function PortfolioHome() {
                 </div>
               </article>
             ))}
+          </div>
+        </section>
+
+        <section className="section">
+          <div className="section-heading">
+            <div>
+              <p className="eyebrow">Connect</p>
+              <h2>Connect with me</h2>
+            </div>
+          </div>
+
+          <div className="recruiter-card">
+            <p className="hero-text">
+              Explore my professional accounts across LinkedIn, GitHub, LeetCode, and CodeChef to review software engineering work, coding progress, and technical achievements.
+            </p>
+            <div className="recruiter-details">
+              {connectLinks.map((link) => (
+                <a key={link.label} href={link.href} target="_blank" rel="me noreferrer">
+                  {link.icon} {link.label}
+                </a>
+              ))}
+            </div>
           </div>
         </section>
 

@@ -1015,7 +1015,7 @@ button {
 @media (max-width: 820px) {
   .topbar,
   .dashboard-topbar {
-    padding: 12px 14px;
+    padding: 12px 10px 12px 14px;
   }
 
   .topbar-home {
@@ -1025,16 +1025,24 @@ button {
   .topbar-row {
     gap: 12px;
     flex-wrap: nowrap;
+    justify-content: space-between;
   }
 
   .brand {
     width: auto;
     min-width: 0;
     flex: 1 1 auto;
+    max-width: calc(100% - 58px);
   }
 
   .brand-copy {
     min-width: 0;
+  }
+
+  .brand-copy strong {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .topnav-desktop,
@@ -1045,6 +1053,8 @@ button {
   .topbar-toggle {
     display: inline-flex;
     flex-shrink: 0;
+    margin-left: auto;
+    margin-right: -2px;
   }
 
   .topbar-mobile-panel {
@@ -1138,10 +1148,12 @@ button {
   .topbar {
     top: 8px;
     margin-top: 12px;
+    padding: 10px 8px 10px 12px;
   }
 
   .topbar-row {
     align-items: center;
+    gap: 10px;
   }
 
   .brand-mark {
@@ -1273,8 +1285,13 @@ button {
     border-radius: 12px;
   }
 
+  .topbar {
+    padding: 10px 6px 10px 10px;
+  }
+
   .brand {
     gap: 10px;
+    max-width: calc(100% - 52px);
   }
 
   .brand-copy strong {
@@ -1285,6 +1302,7 @@ button {
     width: 42px;
     height: 42px;
     border-radius: 10px;
+    margin-right: -1px;
   }
 
   .hero h1 {

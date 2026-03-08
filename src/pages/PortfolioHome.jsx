@@ -13,6 +13,8 @@ import {
 } from "react-icons/fa";
 import { SiCodechef, SiLeetcode } from "react-icons/si";
 import profileImage from "../assets/profile.jpg";
+import { fetchActivity } from "../lib/api.js";
+import { emptyActivity, normalizeActivity } from "../lib/activityDefaults.js";
 
 const projects = [
   {
@@ -49,13 +51,6 @@ const skillGroups = [
   { title: "Backend", items: ["Node.js", "Express"] },
   { title: "Database", items: ["MongoDB", "MySQL"] },
   { title: "Tools", items: ["Git", "GitHub", "Docker"] },
-];
-
-const platformStats = [
-  { label: "LeetCode", value: "690 solved", icon: <SiLeetcode /> },
-  { label: "GitHub", value: "432 commits", icon: <FaGithub /> },
-  { label: "CodeChef", value: "1452 rating", icon: <SiCodechef /> },
-  { label: "Streak", value: "160 days", icon: "Code" },
 ];
 
 const homeNavLinks = [
@@ -197,6 +192,39 @@ function HomeNav() {
 }
 
 export default function PortfolioHome() {
+  const [activityData, setActivityData] = useState(emptyActivity);
+
+  useEffect(() => {
+    let isMounted = true;
+
+    fetchActivity()
+      .then((response) => {
+        if (!isMounted) {
+          return;
+        }
+
+        setActivityData(normalizeActivity(response));
+      })
+      .catch(() => {
+        if (!isMounted) {
+          return;
+        }
+
+        setActivityData(emptyActivity);
+      });
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
+  const platformStats = [
+    { label: "LeetCode", value: `${activityData.leetcode?.solved || 0} solved`, icon: <SiLeetcode /> },
+    { label: "GitHub", value: `${activityData.github?.commits || 0} commits`, icon: <FaGithub /> },
+    { label: "CodeChef", value: `${activityData.codechef?.rating || 0} rating`, icon: <SiCodechef /> },
+    { label: "Streak", value: `${activityData.overview?.currentStreak || 0} days`, icon: "Code" },
+  ];
+
   return (
     <div className="site-shell">
       <div className="site-background" aria-hidden="true" />

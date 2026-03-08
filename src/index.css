@@ -749,23 +749,19 @@ button {
 
 .recruiter-overview {
   display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
+  grid-template-columns: 1fr;
   gap: 14px;
 }
 
 .recruiter-summary-card {
   display: grid;
   gap: 14px;
-}
-
-.recruiter-summary-head {
-  display: grid;
-  gap: 6px;
+  align-content: start;
 }
 
 .recruiter-kpi-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 10px;
 }
 
@@ -794,8 +790,23 @@ button {
 
 .recruiter-contact-card {
   display: grid;
-  gap: 10px;
-  align-content: start;
+  grid-template-columns: auto 1fr;
+  gap: 18px;
+  align-items: center;
+}
+
+.recruiter-contact-copy {
+  display: grid;
+  gap: 4px;
+}
+
+.recruiter-contact-copy h3 {
+  margin: 0;
+}
+
+.recruiter-contact-card .recruiter-actions {
+  margin: 0;
+  justify-content: flex-end;
 }
 
 .recruiter-chip-row {
@@ -1015,15 +1026,15 @@ button {
 @media (max-width: 820px) {
   .topbar,
   .dashboard-topbar {
-    padding: 12px 10px 12px 14px;
+    padding: 10px 10px 10px 12px;
   }
 
   .topbar-home {
-    gap: 10px;
+    gap: 8px;
   }
 
   .topbar-row {
-    gap: 12px;
+    gap: 10px;
     flex-wrap: nowrap;
     justify-content: space-between;
   }
@@ -1032,17 +1043,22 @@ button {
     width: auto;
     min-width: 0;
     flex: 1 1 auto;
-    max-width: calc(100% - 58px);
+    max-width: calc(100% - 54px);
+    gap: 10px;
   }
 
   .brand-copy {
     min-width: 0;
+    gap: 2px;
   }
 
   .brand-copy strong {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    display: block;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+    line-height: 1.1;
+    font-size: 0.96rem;
   }
 
   .topnav-desktop,
@@ -1054,13 +1070,17 @@ button {
     display: inline-flex;
     flex-shrink: 0;
     margin-left: auto;
-    margin-right: -2px;
+    margin-right: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 11px;
   }
 
   .topbar-mobile-panel {
     width: 100%;
     display: none;
-    padding-top: 8px;
+    margin-top: 2px;
+    padding-top: 10px;
     border-top: 1px solid var(--border);
   }
 
@@ -1081,7 +1101,8 @@ button {
   }
 
   .topnav-mobile a {
-    padding: 10px 12px;
+    padding: 12px 14px;
+    min-height: 48px;
     border-radius: 10px;
     background: rgba(255, 255, 255, 0.58);
     border: 1px solid rgba(15, 23, 42, 0.05);
@@ -1123,6 +1144,15 @@ button {
     grid-template-columns: 1fr;
   }
 
+  .recruiter-contact-card {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .recruiter-contact-card .recruiter-actions {
+    justify-content: stretch;
+  }
+
   .profile-summary-card {
     grid-template-columns: 1fr;
   }
@@ -1147,22 +1177,24 @@ button {
 
   .topbar {
     top: 8px;
-    margin-top: 12px;
-    padding: 10px 8px 10px 12px;
+    margin-top: 10px;
+    padding: 10px;
   }
 
   .topbar-row {
     align-items: center;
-    gap: 10px;
+    gap: 8px;
   }
 
   .brand-mark {
-    width: 40px;
-    height: 40px;
+    width: 38px;
+    height: 38px;
+    border-radius: 11px;
+    font-size: 0.9rem;
   }
 
   .brand-copy strong {
-    font-size: 0.98rem;
+    font-size: 0.92rem;
   }
 
   .brand-copy span {
@@ -1286,23 +1318,23 @@ button {
   }
 
   .topbar {
-    padding: 10px 6px 10px 10px;
+    padding: 8px 8px 8px 10px;
   }
 
   .brand {
-    gap: 10px;
-    max-width: calc(100% - 52px);
+    gap: 8px;
+    max-width: calc(100% - 50px);
   }
 
   .brand-copy strong {
-    font-size: 0.95rem;
+    font-size: 0.88rem;
   }
 
   .topbar-toggle {
-    width: 42px;
-    height: 42px;
+    width: 40px;
+    height: 40px;
     border-radius: 10px;
-    margin-right: -1px;
+    padding: 0;
   }
 
   .hero h1 {

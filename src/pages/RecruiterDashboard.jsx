@@ -15,25 +15,33 @@ const skills = ["React", "Node.js", "Express", "MongoDB", "C++", "JavaScript", "
 
 export default function RecruiterDashboard() {
   const [data, setData] = useState(emptyActivity);
-  const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
   useEffect(() => {
+    let isMounted = true;
+
     fetchActivity()
       .then((response) => {
+        if (!isMounted) {
+          return;
+        }
+
         setData(normalizeActivity(response));
         setError("");
       })
       .catch(() => {
+        if (!isMounted) {
+          return;
+        }
+
         setData(emptyActivity);
         setError("Recruiter data is temporarily unavailable. Showing fallback values.");
-      })
-      .finally(() => setLoading(false));
-  }, []);
+      });
 
-  if (loading) {
-    return <div className="dashboard-loading">Loading recruiter view...</div>;
-  }
+    return () => {
+      isMounted = false;
+    };
+  }, []);
 
   return (
     <div className="dashboard-shell recruiter-shell">
@@ -55,14 +63,6 @@ export default function RecruiterDashboard() {
         {error ? <div className="dashboard-alert">{error}</div> : null}
         <div className="recruiter-overview">
           <article className="dashboard-card recruiter-summary-card">
-            <div className="recruiter-summary-head">
-              <p className="eyebrow">Overview</p>
-              <h2>Shortlist-ready engineering profile with live coding signals.</h2>
-              <p>
-                Full-stack developer building production-style React and Node.js projects with a strong DSA and platform-activity foundation.
-              </p>
-            </div>
-
             <div className="recruiter-kpi-grid">
               <div className="recruiter-kpi">
                 <strong>{data.leetcode?.solved || 0}</strong>
@@ -84,9 +84,10 @@ export default function RecruiterDashboard() {
           </article>
 
           <article className="dashboard-card recruiter-contact-card">
-            <p className="eyebrow">Hiring</p>
-            <h3>Fast contact and evaluation links</h3>
-            <p>Resume, coding profiles, and direct contact methods without extra navigation.</p>
+            <div className="recruiter-contact-copy">
+              <p className="eyebrow">Quick Actions</p>
+              <h3>Resume and dashboard links</h3>
+            </div>
             <div className="recruiter-actions">
               <a className="button button-primary" href="/resume.pdf" target="_blank" rel="noreferrer">
                 Download Resume
@@ -135,7 +136,6 @@ export default function RecruiterDashboard() {
       <section className="dashboard-section">
         <div className="section-heading">
           <p className="eyebrow">Contact</p>
-          <h2>Direct hiring links with no extra navigation.</h2>
         </div>
 
         <div className="recruiter-details">

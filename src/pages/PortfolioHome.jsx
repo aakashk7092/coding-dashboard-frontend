@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import {
   FaDownload,
@@ -5,7 +6,9 @@ import {
   FaExternalLinkAlt,
   FaFileAlt,
   FaGithub,
+  FaBars,
   FaLinkedin,
+  FaTimes,
   FaPhoneAlt,
 } from "react-icons/fa";
 import { SiCodechef, SiLeetcode } from "react-icons/si";
@@ -55,30 +58,116 @@ const platformStats = [
   { label: "Streak", value: "160 days", icon: "Code" },
 ];
 
+const homeNavLinks = [
+  { label: "Projects", href: "#projects", type: "anchor" },
+  { label: "Dashboard", href: "/dashboard", type: "route" },
+  { label: "Activity", href: "#activity", type: "anchor" },
+  { label: "Skills", href: "#skills", type: "anchor" },
+  { label: "Resume", href: "/resume.pdf", type: "external" },
+];
+
 function HomeNav() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 820) {
+        setMenuOpen(false);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const closeMenu = () => setMenuOpen(false);
+
   return (
-    <header className="topbar">
-      <Link className="brand" to="/">
-        <span className="brand-mark">AK</span>
-        <span className="brand-copy">
-          <strong>Aakash Kumar</strong>
-        </span>
-      </Link>
-
-      <nav className="topnav">
-        <a href="#projects">Projects</a>
-        <Link to="/dashboard">Dashboard</Link>
-        <a href="#activity">Activity</a>
-        <a href="#skills">Skills</a>
-        <a href="/resume.pdf" target="_blank" rel="noreferrer">
-          Resume
-        </a>
-      </nav>
-
-      <div className="topbar-actions">
-        <Link className="nav-cta" to="/dashboard/recruiter">
-          Recruiter View
+    <header className={`topbar topbar-home ${menuOpen ? "topbar-menu-open" : ""}`}>
+      <div className="topbar-row">
+        <Link className="brand" to="/" onClick={closeMenu}>
+          <span className="brand-mark">AK</span>
+          <span className="brand-copy">
+            <strong>Aakash Kumar</strong>
+          </span>
         </Link>
+
+        <button
+          type="button"
+          className="topbar-toggle"
+          aria-expanded={menuOpen}
+          aria-controls="home-mobile-nav"
+          aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
+          onClick={() => setMenuOpen((current) => !current)}
+        >
+          {menuOpen ? <FaTimes /> : <FaBars />}
+        </button>
+
+        <nav className="topnav topnav-desktop">
+          {homeNavLinks.map((link) => {
+            if (link.type === "route") {
+              return (
+                <Link key={link.label} to={link.href}>
+                  {link.label}
+                </Link>
+              );
+            }
+
+            if (link.type === "external") {
+              return (
+                <a key={link.label} href={link.href} target="_blank" rel="noreferrer">
+                  {link.label}
+                </a>
+              );
+            }
+
+            return (
+              <a key={link.label} href={link.href}>
+                {link.label}
+              </a>
+            );
+          })}
+        </nav>
+
+        <div className="topbar-actions topbar-actions-desktop">
+          <Link className="nav-cta" to="/dashboard/recruiter">
+            Recruiter View
+          </Link>
+        </div>
+      </div>
+
+      <div id="home-mobile-nav" className={`topbar-mobile-panel ${menuOpen ? "is-open" : ""}`}>
+        <nav className="topnav topnav-mobile">
+          {homeNavLinks.map((link) => {
+            if (link.type === "route") {
+              return (
+                <Link key={link.label} to={link.href} onClick={closeMenu}>
+                  {link.label}
+                </Link>
+              );
+            }
+
+            if (link.type === "external") {
+              return (
+                <a key={link.label} href={link.href} target="_blank" rel="noreferrer" onClick={closeMenu}>
+                  {link.label}
+                </a>
+              );
+            }
+
+            return (
+              <a key={link.label} href={link.href} onClick={closeMenu}>
+                {link.label}
+              </a>
+            );
+          })}
+        </nav>
+
+        <div className="topbar-actions topbar-actions-mobile">
+          <Link className="nav-cta" to="/dashboard/recruiter" onClick={closeMenu}>
+            Recruiter View
+          </Link>
+        </div>
       </div>
     </header>
   );
@@ -259,10 +348,6 @@ export default function PortfolioHome() {
           </div>
 
           <div className="recruiter-card">
-            <p>
-              This portfolio is paired with a coding dashboard so recruiters can evaluate projects, coding stats, growth signals, and contact details in one place.
-            </p>
-
             <div className="recruiter-details">
               <a href="mailto:aakashk7092@gmail.com">
                 <FaEnvelope /> aakashk7092@gmail.com

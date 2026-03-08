@@ -53,6 +53,19 @@ function getLeetCodeBadgeMeta(badge) {
   return badge.createdAt || "Active";
 }
 
+function getUnstopBadgeGroup(award = {}) {
+  const source = `${award.name || ""} ${award.tag || ""} ${award.description || ""}`.toLowerCase();
+
+  if (/streak|day|consisten/.test(source)) return "Consistency Badges";
+  if (/hackathon|challenge|contest|quiz|competition|round|battle/.test(source)) return "Competition Highlights";
+  if (/profile|community|campus|public/.test(source)) return "Profile Badges";
+  return "Badge List";
+}
+
+function getUnstopBadgeMeta(award = {}) {
+  return award.createdAt || award.tag || award.description || "Unstop badge";
+}
+
 function buildMonthlySubmissionTrend(submissionCalendar) {
   const monthly = new Map();
 
@@ -516,6 +529,15 @@ export default function DeveloperDashboard() {
     }, {});
   }, [data.leetcode.badges]);
 
+  const unstopBadgeGroups = useMemo(() => {
+    return data.unstop.badges.reduce((groups, award) => {
+      const group = getUnstopBadgeGroup(award);
+      if (!groups[group]) groups[group] = [];
+      groups[group].push(award);
+      return groups;
+    }, {});
+  }, [data.unstop.badges]);
+
   const showLeetCodeAwards = platform === "all" || platform === "leetcode";
   const showUnstopAwards = platform === "all" || platform === "unstop";
   const showAwardsSection = showLeetCodeAwards || showUnstopAwards;
@@ -855,25 +877,33 @@ export default function DeveloperDashboard() {
               <article className={`analytics-card analytics-awards-card ${isFocusedPlatform ? "analytics-awards-focused" : ""}`}>
                 <div className="analytics-card-header">
                   <div>
-                    <h3>Unstop Highlights</h3>
+                    <h3>Badge List</h3>
                     <span>{data.unstop.badges.length} live public badges fetched</span>
                   </div>
                 </div>
                 <div className="analytics-awards-content">
-                  <div className="analytics-award-scroll">
-                    <div className={`analytics-award-grid analytics-award-grid-scroll ${isFocusedPlatform ? "analytics-award-grid-scroll-focused" : ""}`}>
-                      {data.unstop.badges.length > 0 ? (
-                        data.unstop.badges.map((award) => (
-                          <article className="analytics-award-item" key={`${award.name}-${award.createdAt || "unstop"}`}>
-                            {award.icon ? <img src={award.icon} alt={award.name} /> : <div className="analytics-award-fallback">U</div>}
-                            <strong>{award.name}</strong>
-                            <span>{award.createdAt || award.tag || award.description || "Unstop badge"}</span>
-                          </article>
-                        ))
-                      ) : (
-                        <div className="analytics-empty-state">No live Unstop badges available.</div>
-                      )}
-                    </div>
+                  <div className="analytics-badge-list">
+                    {data.unstop.badges.length > 0 ? (
+                      Object.entries(unstopBadgeGroups).map(([groupName, awards]) => (
+                        <section className="analytics-badge-group" key={groupName}>
+                          <h4>{groupName}</h4>
+                          <div className="analytics-award-scroll">
+                            <div className={`analytics-award-grid analytics-award-grid-scroll ${isFocusedPlatform ? "analytics-award-grid-scroll-focused" : ""}`}>
+                              {awards.map((award) => (
+                                <article className="analytics-award-item" key={`${award.name}-${award.createdAt || award.tag || "unstop"}`}>
+                                  {award.icon ? <img src={award.icon} alt={award.name} /> : <div className="analytics-award-fallback">U</div>}
+                                  <small>badge</small>
+                                  <strong>{award.name}</strong>
+                                  <span>{getUnstopBadgeMeta(award)}</span>
+                                </article>
+                              ))}
+                            </div>
+                          </div>
+                        </section>
+                      ))
+                    ) : (
+                      <div className="analytics-empty-state">No live Unstop badges available.</div>
+                    )}
                   </div>
                 </div>
               </article>

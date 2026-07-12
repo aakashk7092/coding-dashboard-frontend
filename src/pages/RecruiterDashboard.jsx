@@ -150,8 +150,8 @@ export default function RecruiterDashboard() {
           <Link className="back-link" to="/">
             Back to Portfolio
           </Link>
-          <h1>Recruiter View</h1>
-          <p>Evaluation-ready summary of projects, achievements, coding signals, skills, resume, and contact details.</p>
+          <h1>Aakash Kumar</h1>
+          <p>Full Stack Developer — projects, achievements, coding activity, skills, resume, and contact.</p>
         </div>
         <div className="recruiter-actions">
           <a className="button button-primary" href="/resume.pdf" target="_blank" rel="noreferrer">
@@ -169,10 +169,10 @@ export default function RecruiterDashboard() {
         <div className="recruiter-overview">
           <article className="dashboard-card recruiter-hero-card">
             <div>
-              <p className="eyebrow">Candidate Snapshot</p>
+              <p className="eyebrow">About</p>
               <h2>Aakash Kumar</h2>
               <p>
-                Full Stack Developer and Google Student Ambassador building recruiter-ready products across backend systems, AI tools, dashboards, IoT automation, and machine learning.
+                Full Stack Developer and Google Student Ambassador building practical products across backend systems, AI tools, dashboards, IoT automation, and machine learning.
               </p>
             </div>
             <div className="recruiter-chip-row">
@@ -229,7 +229,7 @@ export default function RecruiterDashboard() {
         <div className="section-heading home-section-heading">
           <div>
             <p className="eyebrow">Achievements</p>
-            <h2>Strong hiring signals</h2>
+            <h2>Highlights</h2>
           </div>
         </div>
 
@@ -249,7 +249,7 @@ export default function RecruiterDashboard() {
       <section className="dashboard-section">
         <div className="section-heading home-section-heading">
           <div>
-            <p className="eyebrow">Project Evidence</p>
+            <p className="eyebrow">Projects</p>
             <h2>Practical systems and products</h2>
           </div>
         </div>
@@ -296,7 +296,7 @@ export default function RecruiterDashboard() {
           </article>
 
           <article className="dashboard-card">
-            <h3>Signal Summary</h3>
+            <h3>Coding Stats</h3>
             <ul className="dashboard-list">
               <li>LeetCode contest rating: {data.leetcode?.contestRating || 0}</li>
               <li>GitHub followers: {data.github?.followers || 0}</li>

@@ -970,6 +970,85 @@ button {
   margin: 0;
 }
 
+.recruiter-hero-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+  gap: 18px;
+  align-items: center;
+}
+
+.recruiter-hero-card h2 {
+  margin: 6px 0 10px;
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  line-height: 1.05;
+}
+
+.recruiter-hero-card p {
+  margin: 0;
+  color: var(--text-muted);
+}
+
+.recruiter-achievement-grid,
+.recruiter-project-grid {
+  display: grid;
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.recruiter-achievement-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.recruiter-project-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.recruiter-achievement-card {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: 12px;
+  align-items: start;
+}
+
+.recruiter-achievement-icon {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  background: rgba(161, 94, 55, 0.1);
+  color: var(--accent);
+}
+
+.recruiter-achievement-card h3,
+.recruiter-project-card h3 {
+  margin: 0 0 8px;
+}
+
+.recruiter-achievement-card p,
+.recruiter-project-card p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+.recruiter-project-card {
+  display: grid;
+  gap: 10px;
+  align-content: start;
+}
+
+.recruiter-project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 2px;
+}
+
+.recruiter-wide-card {
+  grid-column: span 2;
+}
+
 .recruiter-contact-card .recruiter-actions {
   margin: 0;
   justify-content: flex-end;
@@ -1170,6 +1249,7 @@ button {
   .profile-header-grid,
   .recruiter-overview,
   .recruiter-card-grid,
+  .recruiter-hero-card,
   .hero-stats-grid,
   .impact-grid,
   .achievement-grid,
@@ -1182,6 +1262,11 @@ button {
   }
 
   .achievement-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .recruiter-achievement-grid,
+  .recruiter-project-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -1397,9 +1482,15 @@ button {
   .signal-list,
   .overview-grid,
   .recruiter-kpi-grid,
+  .recruiter-achievement-grid,
+  .recruiter-project-grid,
   .project-grid,
   .achievement-grid {
     grid-template-columns: 1fr;
+  }
+
+  .recruiter-wide-card {
+    grid-column: auto;
   }
 
   .recruiter-contact-card {

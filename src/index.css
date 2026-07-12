@@ -95,6 +95,8 @@ button {
 .dashboard-topbar,
 .hero-intro-card,
 .home-rail-card,
+.impact-card,
+.achievement-card,
 .portrait-card,
 .project-card,
 .activity-item,
@@ -182,6 +184,7 @@ button {
 .hero-text,
 .hero-live,
 .project-card p,
+.achievement-card p,
 .activity-item p,
 .recruiter-card p,
 .dashboard-list li,
@@ -198,10 +201,12 @@ button {
 .topnav .active,
 .section-link,
 .project-card h3,
+.achievement-card h3,
 .skills-row-card h3,
 .dashboard-card h3,
 .chart-card h3,
 .platform-card h3,
+.impact-card strong,
 .recruiter-kpi strong,
 .hero-side-copy h2 {
   color: var(--text-main);
@@ -283,6 +288,8 @@ button {
 .nav-cta:hover,
 .recruiter-details a:hover,
 .profile-links a:hover,
+.impact-card:hover,
+.achievement-card:hover,
 .platform-card:hover,
 .project-card:hover,
 .overview-stat:hover,
@@ -342,6 +349,7 @@ button {
 }
 
 .project-card p,
+.achievement-card p,
 .activity-item p,
 .recruiter-card p,
 .dashboard-topbar p,
@@ -435,10 +443,90 @@ button {
   padding-top: 0;
 }
 
+.impact-section {
+  padding-top: 0;
+}
+
 .hero-stats-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 14px;
+}
+
+.impact-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.impact-card {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: 14px;
+  align-items: start;
+  padding: 16px;
+  border-radius: var(--radius-lg);
+}
+
+.impact-card strong {
+  display: block;
+  font-size: 20px;
+  line-height: 1.1;
+}
+
+.impact-card span {
+  display: block;
+  margin-top: 8px;
+  color: var(--text-muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.impact-icon {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: rgba(161, 94, 55, 0.1);
+  color: var(--accent);
+  font-size: 1.1rem;
+}
+
+.achievement-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.achievement-card {
+  display: grid;
+  grid-template-columns: 46px 1fr;
+  gap: 14px;
+  align-items: start;
+  padding: 18px;
+  border-radius: var(--radius-lg);
+}
+
+.achievement-icon {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  background: rgba(59, 130, 246, 0.1);
+  color: var(--accent);
+  font-size: 1.05rem;
+}
+
+.achievement-card h3 {
+  margin: 0 0 6px;
+  font-size: 16px;
+}
+
+.achievement-card p {
+  margin: 0;
+  line-height: 1.65;
 }
 
 .hero-side-stat {
@@ -536,7 +624,7 @@ button {
 }
 
 .project-grid {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 18px;
 }
 
@@ -608,6 +696,13 @@ button {
   gap: 10px;
 }
 
+.project-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
 .project-type {
   margin: 0 0 6px;
   color: #b87448;
@@ -615,6 +710,32 @@ button {
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
+}
+
+.project-status {
+  flex-shrink: 0;
+  padding: 5px 9px;
+  border-radius: 999px;
+  background: rgba(161, 94, 55, 0.1);
+  border: 1px solid rgba(161, 94, 55, 0.14);
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.project-subtitle {
+  margin: -4px 0 0;
+  color: #5e4332;
+  font-weight: 700;
+}
+
+.project-impact {
+  margin: 0;
+  padding: 10px 12px;
+  border-left: 3px solid var(--accent);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.52);
 }
 
 .project-card h3,
@@ -995,7 +1116,6 @@ button {
 
   .hero,
   .hero-intro-card,
-  .project-grid,
   .skills-grid,
   .platform-stats-grid,
   .platform-grid,
@@ -1006,8 +1126,18 @@ button {
   .recruiter-overview,
   .recruiter-card-grid,
   .hero-stats-grid,
+  .impact-grid,
+  .achievement-grid,
   .home-two-column {
     grid-template-columns: 1fr;
+  }
+
+  .project-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .achievement-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .overview-grid {
@@ -1020,6 +1150,12 @@ button {
 
   .topnav {
     justify-content: center;
+    gap: 10px;
+    font-size: 0.92rem;
+  }
+
+  .nav-cta {
+    padding-inline: 14px;
   }
 }
 
@@ -1140,7 +1276,9 @@ button {
   .recruiter-details,
   .signal-list,
   .overview-grid,
-  .recruiter-kpi-grid {
+  .recruiter-kpi-grid,
+  .project-grid,
+  .achievement-grid {
     grid-template-columns: 1fr;
   }
 
@@ -1265,15 +1403,19 @@ button {
   }
 
   .project-card,
+  .achievement-card,
   .skills-row-card,
   .platform-stat-card,
+  .impact-card,
   .recruiter-card,
   .dashboard-card {
     padding: 16px;
   }
 
   .project-grid,
+  .achievement-grid,
   .hero-stats-grid,
+  .impact-grid,
   .recruiter-details {
     gap: 10px;
   }
@@ -1292,7 +1434,8 @@ button {
 
   .skills-inline-list li,
   .stack-badge,
-  .recruiter-chip {
+  .recruiter-chip,
+  .project-status {
     font-size: 12px;
     padding: 6px 10px;
   }
@@ -1310,6 +1453,8 @@ button {
   .dashboard-topbar,
   .hero-intro-card,
   .home-rail-card,
+  .impact-card,
+  .achievement-card,
   .project-card,
   .skills-row-card,
   .recruiter-card,
@@ -1346,6 +1491,7 @@ button {
   .hero-text,
   .hero-live,
   .project-card p,
+  .achievement-card p,
   .activity-item p,
   .recruiter-card p {
     font-size: 0.92rem;
@@ -1407,9 +1553,14 @@ button {
   }
 
   .project-card h3,
+  .achievement-card h3,
   .skills-row-card h3,
   .dashboard-card h3 {
     font-size: 1rem;
+  }
+
+  .project-card-head {
+    align-items: flex-start;
   }
 
   .skills-inline-list {

@@ -1,13 +1,21 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import {
+  FaAward,
+  FaBolt,
+  FaBrain,
+  FaBriefcase,
+  FaCertificate,
+  FaChartLine,
   FaDownload,
   FaEnvelope,
   FaExternalLinkAlt,
   FaFileAlt,
   FaGithub,
   FaBars,
+  FaGraduationCap,
   FaLinkedin,
+  FaRocket,
   FaTimes,
   FaPhoneAlt,
 } from "react-icons/fa";
@@ -18,42 +26,174 @@ import { emptyActivity, normalizeActivity } from "../lib/activityDefaults.js";
 
 const projects = [
   {
-    title: "Rajpoot Associates Website",
-    subtitle: "Full Website Development | Client Project",
+    title: "Tech-FreeLance Platform",
+    subtitle: "Full-Stack Freelancing Platform",
+    status: "In Progress",
+    category: "Production Architecture",
     description:
-      "Live client website built with a responsive layout, business-oriented service pages, contact flow, and SEO-conscious content structure.",
-    stack: ["React", "Node", "MongoDB"],
-    liveLabel: "Live Website",
-    liveUrl: "https://rajpootassociates.in",
+      "A scalable freelancing platform connecting clients and freelancers with secure auth, role-based access, profiles, project posting, proposals, real-time notifications, and dashboards.",
+    stack: ["React", "NestJS", "PostgreSQL", "Prisma", "Redis", "JWT"],
+    impact: "Built around production-ready backend structure and responsive user flows.",
   },
   {
     title: "Coding Practice Platform",
-    subtitle: "Current Product Build",
+    subtitle: "Interview Preparation Product",
+    status: "Active Build",
+    category: "Full Stack",
     description:
-      "A coding preparation platform where users can practice company-wise DSA questions, connect accounts, and track solved problems in one recruiter-friendly dashboard.",
-    stack: ["React", "Node", "Express", "MongoDB"],
+      "A coding interview preparation platform for company-wise DSA practice, solved problem tracking, coding profile integrations, and recruiter-friendly progress visibility.",
+    stack: ["React", "Node.js", "Express.js", "MongoDB"],
+    impact: "Turns daily problem solving into measurable technical growth.",
     liveLabel: "View Coding Dashboard",
     liveUrl: "/dashboard",
     githubUrl: "https://github.com/aakashk7092",
   },
+  {
+    title: "Developer Analytics Dashboard",
+    subtitle: "Unified Coding Activity Dashboard",
+    status: "Built",
+    category: "Analytics",
+    description:
+      "A dashboard that aggregates GitHub, LeetCode, and CodeChef activity into one interface with commits, solved problems, streaks, ratings, and developer metrics.",
+    stack: ["React", "Node.js", "REST APIs"],
+    impact: "Gives recruiters a fast view of consistency, coding progress, and platform signals.",
+    liveLabel: "Open Dashboard",
+    liveUrl: "/dashboard/recruiter",
+  },
+  {
+    title: "VerdictOS",
+    subtitle: "AI Startup Validation Platform",
+    status: "Built",
+    category: "AI Product",
+    description:
+      "An AI-powered startup validation system that simulates a virtual boardroom of specialized agents for market research, competitor analysis, pricing, risks, MVP planning, growth, and investment verdicts.",
+    stack: ["React", "Node.js", "Google Gemini API", "Tavily API", "Express.js"],
+    impact: "Combines multiple AI perspectives into one business decision workflow.",
+  },
+  {
+    title: "Rajpoot Associates Website",
+    subtitle: "Client Business Website",
+    status: "Live",
+    category: "Client Work",
+    description:
+      "A fully responsive business website developed for a real client with service pages, contact functionality, SEO-friendly content, responsive design, and professional user experience.",
+    stack: ["React", "Node.js", "MongoDB"],
+    impact: "Delivered and deployed for a real business online presence.",
+    liveLabel: "Live Website",
+    liveUrl: "https://rajpootassociates.in",
+  },
+  {
+    title: "Smart Asset Tracking & Inventory Management System",
+    subtitle: "IoT Inventory System",
+    status: "Built",
+    category: "IoT",
+    description:
+      "An IoT-based inventory management system using ESP32 and RFID to track assets in real time, sync inventory records with Google Sheets, and monitor data through ThingsBoard.",
+    stack: ["ESP32", "MFRC522 RFID", "Arduino", "Google Sheets API", "ThingsBoard"],
+    impact: "Bridges embedded hardware, cloud sync, and operational tracking.",
+  },
+  {
+    title: "Plant Disease Detection System",
+    subtitle: "Computer Vision Application",
+    status: "Built",
+    category: "AI/ML",
+    description:
+      "An AI-powered application that detects plant diseases from leaf images using deep learning, helping identify crop issues early for better agricultural decision-making.",
+    stack: ["Python", "TensorFlow", "OpenCV", "CNN"],
+    impact: "Applies machine learning to a practical agriculture problem.",
+  },
 ];
 
 const activities = [
-  "Day 66 - Completed LeetCode 75 Challenge problem",
-  "Building Coding Platform Dashboard",
-  "Developed Rajpoot Associates Website",
-  "Working on DSA and System Design",
+  "Selected as a Google Student Ambassador",
+  "Maintained 200+ days of DSA consistency",
+  "Building Tech-FreeLance with NestJS, PostgreSQL, Prisma, Redis, and JWT",
+  "Developing a recruiter-friendly coding practice and analytics platform",
+  "Shipped Rajpoot Associates as a live client website",
 ];
 
 const skillGroups = [
   { title: "Languages", items: ["C++", "Python", "JavaScript"] },
-  { title: "Frontend", items: ["React", "Tailwind CSS"] },
-  { title: "Backend", items: ["Node.js", "Express"] },
-  { title: "Database", items: ["MongoDB", "MySQL"] },
-  { title: "Tools", items: ["Git", "GitHub", "Docker"] },
+  { title: "Frontend", items: ["React", "Responsive UI", "Tailwind CSS"] },
+  { title: "Backend", items: ["Node.js", "Express", "NestJS", "REST APIs"] },
+  { title: "Database", items: ["MongoDB", "PostgreSQL", "Prisma", "MySQL", "Redis"] },
+  { title: "AI / IoT", items: ["Google Gemini API", "Tavily API", "TensorFlow", "OpenCV", "ESP32", "RFID"] },
+  { title: "Tools", items: ["Git", "GitHub", "Docker", "ThingsBoard"] },
+];
+
+const impactHighlights = [
+  {
+    label: "Google Program",
+    value: "Ambassador",
+    icon: <FaAward />,
+    detail: "Selected as a Google Student Ambassador for student developer engagement.",
+  },
+  {
+    label: "Product Builder",
+    value: "7 projects",
+    icon: <FaBolt />,
+    detail: "Full-stack, AI, analytics, IoT, and machine learning systems.",
+  },
+  {
+    label: "DSA Consistency",
+    value: "200+ days",
+    icon: <FaChartLine />,
+    detail: "Sustained daily problem-solving through the #200DaysDSAConsistency challenge.",
+  },
+  {
+    label: "Real Client Work",
+    value: "Live website",
+    icon: <FaBriefcase />,
+    detail: "Delivered and deployed a business website for Rajpoot Associates.",
+  },
+];
+
+const achievements = [
+  {
+    title: "Google Student Ambassador",
+    summary:
+      "Selected to promote Google technologies, engage with the student developer community, and participate in technical events and initiatives.",
+    icon: <FaAward />,
+  },
+  {
+    title: "200+ Days of DSA Consistency",
+    summary:
+      "Maintained a 200+ day Data Structures and Algorithms streak while solving coding problems and sharing progress through #200DaysDSAConsistency.",
+    icon: <FaChartLine />,
+  },
+  {
+    title: "Competitive Programming",
+    summary:
+      "Actively solving problems on LeetCode and CodeChef to strengthen problem-solving skills and prepare for software engineering interviews.",
+    icon: <SiLeetcode />,
+  },
+  {
+    title: "HackerRank Certifications",
+    summary: "Certified in Python Basic, SQL Basic, and Problem Solving Basic.",
+    icon: <FaCertificate />,
+  },
+  {
+    title: "Academic Performance",
+    summary:
+      "Maintaining an 84.19% aggregate in B.Tech Computer Science Engineering at Invertis University, Bareilly.",
+    icon: <FaGraduationCap />,
+  },
+  {
+    title: "Full-Stack Product Development",
+    summary:
+      "Building Tech-FreeLance, Coding Practice Platform, Developer Analytics Dashboard, and VerdictOS with scalable backend architecture.",
+    icon: <FaRocket />,
+  },
+  {
+    title: "Continuous Learning",
+    summary:
+      "Expanding expertise in backend development, system design, NestJS, PostgreSQL, Redis, Docker, and scalable architecture.",
+    icon: <FaBrain />,
+  },
 ];
 
 const homeNavLinks = [
+  { label: "Achievements", href: "#achievements", type: "anchor" },
   { label: "Projects", href: "#projects", type: "anchor" },
   { label: "Dashboard", href: "/dashboard", type: "route" },
   { label: "Activity", href: "#activity", type: "anchor" },
@@ -241,15 +381,15 @@ export default function PortfolioHome() {
 
             <div className="hero-copy">
               <h1>Aakash Kumar</h1>
-              <h2 className="hero-role">Software Engineer | DSA Enthusiast | Full Stack Developer</h2>
+              <h2 className="hero-role">Full Stack Developer building recruiter-ready products, AI systems, dashboards, and IoT solutions</h2>
               <p className="hero-text">
-                Hi, I'm Aakash Kumar, a passionate Software Engineer focused on Data Structures, Algorithms, and Full Stack Web Development using React, Node.js, and MongoDB.
+                Google Student Ambassador with 200+ days of DSA consistency, building practical software that goes beyond classroom projects: freelancing platforms, coding analytics dashboards, AI validation tools, client websites, IoT inventory systems, and ML applications.
               </p>
               <p className="hero-text">
-                Current focus: a coding preparation platform that combines DSA practice, account integrations, and live developer signals in one place.
+                Current focus: Tech-FreeLance, a production-minded freelancing platform using React, NestJS, PostgreSQL, Prisma, Redis, and JWT.
               </p>
               <p className="hero-live">
-                Previously built a live client website:{" "}
+                Real client delivery:{" "}
                 <a href="https://rajpootassociates.in" target="_blank" rel="noreferrer">
                   rajpootassociates.in
                 </a>
@@ -261,6 +401,9 @@ export default function PortfolioHome() {
                 </Link>
                 <a className="button button-secondary" href="#projects">
                   View Projects
+                </a>
+                <a className="button button-secondary" href="#achievements">
+                  Achievements
                 </a>
                 <a className="button button-ghost" href="https://github.com/aakashk7092" target="_blank" rel="noreferrer">
                   GitHub
@@ -312,6 +455,45 @@ export default function PortfolioHome() {
           </div>
         </section>
 
+        <section className="section impact-section">
+          <div className="impact-grid">
+            {impactHighlights.map((item) => (
+              <article className="impact-card" key={item.label}>
+                <span className="impact-icon">{item.icon}</span>
+                <div>
+                  <p className="project-type">{item.label}</p>
+                  <strong>{item.value}</strong>
+                  <span>{item.detail}</span>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="section home-section-grid" id="achievements">
+          <div className="section-heading home-section-heading">
+            <div>
+              <p className="eyebrow">Achievements</p>
+              <h2>Proof of consistency, leadership, and execution</h2>
+            </div>
+            <a className="section-link" href="/resume.pdf" target="_blank" rel="noreferrer">
+              View resume
+            </a>
+          </div>
+
+          <div className="achievement-grid">
+            {achievements.map((achievement) => (
+              <article className="achievement-card" key={achievement.title}>
+                <span className="achievement-icon">{achievement.icon}</span>
+                <div>
+                  <h3>{achievement.title}</h3>
+                  <p>{achievement.summary}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
         <section className="section">
           <div className="section-heading">
             <div>
@@ -347,9 +529,14 @@ export default function PortfolioHome() {
           <div className="project-grid" id="projects">
             {projects.map((project) => (
               <article className="project-card" key={project.title}>
-                <p className="project-type">{project.subtitle}</p>
+                <div className="project-card-head">
+                  <p className="project-type">{project.category}</p>
+                  <span className="project-status">{project.status}</span>
+                </div>
                 <h3>{project.title}</h3>
+                <p className="project-subtitle">{project.subtitle}</p>
                 <p>{project.description}</p>
+                <p className="project-impact">{project.impact}</p>
                 <div className="project-stack">
                   {project.stack.map((item) => (
                     <span className="stack-badge" key={item}>
@@ -358,16 +545,16 @@ export default function PortfolioHome() {
                   ))}
                 </div>
                 <div className="project-links">
-                  {project.liveUrl.startsWith("/") ? (
+                  {project.liveUrl?.startsWith("/") ? (
                     <Link className="button button-primary" to={project.liveUrl}>
                       {project.liveLabel}
                     </Link>
-                  ) : (
+                  ) : project.liveUrl ? (
                     <a className="button button-primary" href={project.liveUrl} target="_blank" rel="noreferrer">
                       {project.liveLabel}
                       <FaExternalLinkAlt />
                     </a>
-                  )}
+                  ) : null}
                   {project.githubUrl ? (
                     <a className="button button-secondary" href={project.githubUrl} target="_blank" rel="noreferrer">
                       GitHub

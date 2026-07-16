@@ -36,18 +36,25 @@ const projects = [
     impact: "Built around production-ready backend structure and responsive user flows.",
   },
   {
-    title: "Coding Practice Platform",
-    subtitle: "Interview Preparation Product",
-    status: "Active Build",
-    category: "Full Stack",
-    description:
-      "A coding interview preparation platform for company-wise DSA practice, solved problem tracking, coding profile integrations, and recruiter-friendly progress visibility.",
-    stack: ["React", "Node.js", "Express.js", "MongoDB"],
-    impact: "Turns daily problem solving into measurable technical growth.",
-    liveLabel: "View Coding Dashboard",
-    liveUrl: "/Baiyalogic",
-    githubUrl: "https://bhaiyalogic.in/",
-  },
+  title: "BhaiyaLogic",
+  subtitle: "DSA Learning & Coding Practice Platform",
+  status: "Active Development",
+  category: "Full Stack",
+  description:
+    "A comprehensive DSA learning and coding platform featuring structured roadmaps, company-wise interview preparation, coding sheets, progress tracking, contests, handwritten notes, articles, coding profile integrations, and personalized learning dashboards for students preparing for software engineering interviews.",
+  stack: [
+    "React",
+    "Node.js",
+    "Express.js",
+    "MongoDB",
+    "Tailwind CSS"
+  ],
+  impact:
+    "Helps students learn DSA systematically, monitor progress, and prepare efficiently for product-based company interviews.",
+  liveLabel: "Visit BhaiyaLogic",
+  liveUrl: "https://bhaiyalogic.in",
+  githubUrl: "https://bhaiyalogic.in"
+},
   {
     title: "Developer Analytics Dashboard",
     subtitle: "Unified Coding Activity Dashboard",

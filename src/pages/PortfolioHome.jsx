@@ -45,8 +45,8 @@ const projects = [
     stack: ["React", "Node.js", "Express.js", "MongoDB"],
     impact: "Turns daily problem solving into measurable technical growth.",
     liveLabel: "View Coding Dashboard",
-    liveUrl: "/dashboard",
-    githubUrl: "https://github.com/aakashk7092",
+    liveUrl: "/Baiyalogic",
+    githubUrl: "https://bhaiyalogic.in/",
   },
   {
     title: "Developer Analytics Dashboard",

@@ -17,7 +17,7 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
-import { FaArrowLeft, FaDownload, FaFire, FaGithub, FaLinkedin, FaSyncAlt, FaTrophy } from "react-icons/fa";
+import { FaArrowLeft, FaBriefcase, FaDownload, FaFire, FaGithub, FaLinkedin, FaSyncAlt, FaTrophy } from "react-icons/fa";
 import { SiCodechef, SiLeetcode } from "react-icons/si";
 import profileImage from "../assets/profile.jpg";
 import unstopIcon from "../assets/unstop.png";
@@ -33,7 +33,7 @@ const platformTabs = [
   { id: "unstop", label: "Unstop", icon: <img src={unstopIcon} alt="Unstop" className="analytics-tab-image" /> },
 ];
 
-const pieColors = ["#3b82f6", "#60a5fa", "#93c5fd", "#1d4ed8"];
+const pieColors = ["#a15e37", "#b87448", "#cf8d5d", "#e4a779"];
 
 function getLeetCodeBadgeGroup(name = "") {
   if (/Days Badge/i.test(name)) return "Annual Medals";
@@ -564,11 +564,11 @@ export default function DeveloperDashboard() {
           </div>
           <ResponsiveContainer width="100%" height={280}>
             <LineChart data={problemsTrend}>
-              <CartesianGrid stroke="#1e293b" strokeDasharray="3 3" />
-              <XAxis dataKey="label" tick={{ fill: "#94a3b8", fontSize: 11 }} />
-              <YAxis tick={{ fill: "#94a3b8", fontSize: 11 }} />
-              <Tooltip contentStyle={{ background: "#ffffff", border: "1px solid #cbd5e1", borderRadius: 12 }} />
-              <Line type="monotone" dataKey="value" stroke="#3b82f6" strokeWidth={3} dot={{ r: 4, fill: "#60a5fa" }} />
+              <CartesianGrid stroke="rgba(115, 82, 57, 0.12)" strokeDasharray="3 3" />
+              <XAxis dataKey="label" tick={{ fill: "#7f6655", fontSize: 11 }} />
+              <YAxis tick={{ fill: "#7f6655", fontSize: 11 }} />
+              <Tooltip contentStyle={{ background: "#fff8f1", border: "1px solid rgba(115, 82, 57, 0.2)", borderRadius: 12, color: "#3c281b", boxShadow: "0 8px 24px rgba(102, 71, 49, 0.12)" }} />
+              <Line type="monotone" dataKey="value" stroke="#a15e37" strokeWidth={3} dot={{ r: 4, fill: "#b87448" }} />
             </LineChart>
           </ResponsiveContainer>
         </article>
@@ -592,7 +592,7 @@ export default function DeveloperDashboard() {
                     <Cell key={entry.label} fill={pieColors[index % pieColors.length]} />
                   ))}
                 </Pie>
-                <Tooltip contentStyle={{ background: "#ffffff", border: "1px solid #cbd5e1", borderRadius: 12 }} />
+                <Tooltip contentStyle={{ background: "#fff8f1", border: "1px solid rgba(115, 82, 57, 0.2)", borderRadius: 12, color: "#3c281b" }} />
               </PieChart>
             </ResponsiveContainer>
             <div className="analytics-inline-bars analytics-inline-bars-large">
@@ -619,11 +619,11 @@ export default function DeveloperDashboard() {
           </div>
           <ResponsiveContainer width="100%" height={280}>
             <BarChart data={topicAnalysis} layout="vertical" margin={{ left: 12 }}>
-              <CartesianGrid stroke="#1e293b" strokeDasharray="3 3" />
-              <XAxis type="number" tick={{ fill: "#94a3b8", fontSize: 11 }} />
-              <YAxis type="category" dataKey="label" tick={{ fill: "#94a3b8", fontSize: 11 }} width={88} />
-              <Tooltip contentStyle={{ background: "#ffffff", border: "1px solid #cbd5e1", borderRadius: 12 }} />
-              <Bar dataKey="value" fill="#3b82f6" radius={[0, 8, 8, 0]} />
+              <CartesianGrid stroke="rgba(115, 82, 57, 0.12)" strokeDasharray="3 3" />
+              <XAxis type="number" tick={{ fill: "#7f6655", fontSize: 11 }} />
+              <YAxis type="category" dataKey="label" tick={{ fill: "#7f6655", fontSize: 11 }} width={88} />
+              <Tooltip contentStyle={{ background: "#fff8f1", border: "1px solid rgba(115, 82, 57, 0.2)", borderRadius: 12, color: "#3c281b" }} />
+              <Bar dataKey="value" fill="#a15e37" radius={[0, 8, 8, 0]} />
             </BarChart>
           </ResponsiveContainer>
         </article>
@@ -648,15 +648,15 @@ export default function DeveloperDashboard() {
               <AreaChart data={contestChartData}>
                 <defs>
                   <linearGradient id="ratingFill" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="#3b82f6" stopOpacity={0.4} />
-                    <stop offset="95%" stopColor="#3b82f6" stopOpacity={0.04} />
+                    <stop offset="5%" stopColor="#a15e37" stopOpacity={0.4} />
+                    <stop offset="95%" stopColor="#a15e37" stopOpacity={0.04} />
                   </linearGradient>
                 </defs>
-                <CartesianGrid stroke="#1e293b" strokeDasharray="3 3" />
-                <XAxis dataKey="label" tick={{ fill: "#94a3b8", fontSize: 11 }} />
-                <YAxis tick={{ fill: "#94a3b8", fontSize: 11 }} />
-                <Tooltip contentStyle={{ background: "#ffffff", border: "1px solid #cbd5e1", borderRadius: 12 }} />
-                <Area type="monotone" dataKey="value" stroke="#3b82f6" fill="url(#ratingFill)" strokeWidth={3} />
+                <CartesianGrid stroke="rgba(115, 82, 57, 0.12)" strokeDasharray="3 3" />
+                <XAxis dataKey="label" tick={{ fill: "#7f6655", fontSize: 11 }} />
+                <YAxis tick={{ fill: "#7f6655", fontSize: 11 }} />
+                <Tooltip contentStyle={{ background: "#fff8f1", border: "1px solid rgba(115, 82, 57, 0.2)", borderRadius: 12, color: "#3c281b" }} />
+                <Area type="monotone" dataKey="value" stroke="#a15e37" fill="url(#ratingFill)" strokeWidth={3} />
               </AreaChart>
             </ResponsiveContainer>
           ) : (
@@ -680,10 +680,7 @@ export default function DeveloperDashboard() {
           <Link className="analytics-back-link" to="/">
             <FaArrowLeft /> Portfolio
           </Link>
-          <div>
-            <p className="analytics-eyebrow">Developer Dashboard</p>
-            <h1>Developer Dashboard</h1>
-          </div>
+          <h1>Developer Dashboard</h1>
         </div>
 
         <div className="analytics-topbar-actions">
@@ -691,10 +688,10 @@ export default function DeveloperDashboard() {
             <FaDownload /> Resume
           </a>
           <button className="analytics-button analytics-button-secondary" onClick={handleRefresh} disabled={refreshing}>
-            <FaSyncAlt /> {refreshing ? "Refreshing..." : "Refresh"}
+            <FaSyncAlt className={refreshing ? "spin-icon" : ""} /> {refreshing ? "Refreshing..." : "Refresh"}
           </button>
           <Link className="analytics-button analytics-button-primary" to="/dashboard/recruiter">
-            Recruiter View
+            <FaBriefcase /> Recruiter View
           </Link>
         </div>
       </header>
@@ -727,7 +724,7 @@ export default function DeveloperDashboard() {
         </article>
 
         <article className="analytics-card analytics-total-card">
-          <p className="analytics-eyebrow">Total Solved</p>
+          <p className="analytics-card-label">Total Solved</p>
           <strong>{totalSolved}</strong>
           <div className="analytics-total-breakdown">
             <div><span>LeetCode</span><strong>{data.leetcode.solved}</strong></div>
@@ -739,10 +736,7 @@ export default function DeveloperDashboard() {
 
       <section className="analytics-section">
         <div className="analytics-section-head">
-          <div>
-            <p className="analytics-eyebrow">Platform Filter</p>
-            <h2>{platform === "all" ? "Platform Stats" : `${selectedPlatformLabel} Overview`}</h2>
-          </div>
+          <h2>{platform === "all" ? "Platform Activity" : `${selectedPlatformLabel} Overview`}</h2>
         </div>
 
         <div className="analytics-tabs">
@@ -766,10 +760,7 @@ export default function DeveloperDashboard() {
 
       <section className="analytics-section">
         <div className="analytics-section-head">
-          <div>
-            <p className="analytics-eyebrow">Analytics</p>
-            <h2>{platform === "all" ? "Performance Signals" : `${selectedPlatformLabel} Analytics`}</h2>
-          </div>
+          <h2>{platform === "all" ? "Performance Analytics" : `${selectedPlatformLabel} Analytics`}</h2>
         </div>
 
         <div className={`analytics-grid analytics-grid-charts ${isFocusedPlatform ? "analytics-grid-charts-single" : ""}`}>
@@ -800,7 +791,7 @@ export default function DeveloperDashboard() {
                 username={data.profile.githubUsername}
                 colorScheme="light"
                 theme={{
-                  light: ["#e2e8f0", "#bfdbfe", "#93c5fd", "#60a5fa", "#2563eb"],
+                  light: ["#f1e2d3", "#e0be9f", "#c8946e", "#ad6e44", "#8c502b"],
                 }}
                 blockSize={11}
                 blockMargin={4}
@@ -813,10 +804,7 @@ export default function DeveloperDashboard() {
 
       <section className="analytics-section">
         <div className="analytics-section-head">
-          <div>
-            <p className="analytics-eyebrow">Achievements</p>
-            <h2>{platform === "all" ? "High Signal Summary" : `${selectedPlatformLabel} Highlights`}</h2>
-          </div>
+          <h2>{platform === "all" ? "Highlights & Key Metrics" : `${selectedPlatformLabel} Highlights`}</h2>
         </div>
 
         <article className="analytics-card analytics-achievement-card">
@@ -834,10 +822,7 @@ export default function DeveloperDashboard() {
       {showAwardsSection ? (
         <section className="analytics-section">
           <div className="analytics-section-head">
-            <div>
-              <p className="analytics-eyebrow">Awards</p>
-              <h2>{awardsHeading}</h2>
-            </div>
+            <h2>{awardsHeading}</h2>
           </div>
 
           <div className={`analytics-grid analytics-grid-awards ${isFocusedPlatform ? "analytics-grid-awards-single" : ""}`}>
@@ -845,7 +830,7 @@ export default function DeveloperDashboard() {
               <article className={`analytics-card analytics-awards-card ${isFocusedPlatform ? "analytics-awards-focused" : ""}`}>
                 <div className="analytics-card-header">
                   <div>
-                    <h3>Badge List</h3>
+                    <h3>LeetCode Medals</h3>
                     <span>{data.leetcode.badges.length} live LeetCode medals fetched</span>
                   </div>
                 </div>
@@ -877,7 +862,39 @@ export default function DeveloperDashboard() {
               <article className={`analytics-card analytics-awards-card ${isFocusedPlatform ? "analytics-awards-focused" : ""}`}>
                 <div className="analytics-card-header">
                   <div>
-                    <h3>Badge List</h3>
+                    <h3>Unstop Badges</h3>
+                    <span>{data.unstop.badges.length} live public badges fetched</span>
+                  </div>
+                </div>
+                <div className="analytics-awards-content">
+                  <div className="analytics-badge-list">
+                  {Object.entries(leetcodeBadgeGroups).map(([groupName, badges]) => (
+                    <section className="analytics-badge-group" key={groupName}>
+                      <h4>{groupName}</h4>
+                      <div className="analytics-award-scroll">
+                        <div className="analytics-award-grid analytics-award-grid-scroll">
+                          {badges.map((badge) => (
+                            <article className="analytics-award-item" key={`${badge.name}-${badge.createdAt || "active"}`}>
+                              {badge.icon ? <img src={badge.icon} alt={badge.name} /> : <div className="analytics-award-fallback">L</div>}
+                              <small>badge</small>
+                              <strong>{getLeetCodeBadgeTitle(badge.name)}</strong>
+                              <span>{getLeetCodeBadgeMeta(badge)}</span>
+                            </article>
+                          ))}
+                        </div>
+                      </div>
+                    </section>
+                  ))}
+                  </div>
+                </div>
+              </article>
+            ) : null}
+
+            {showUnstopAwards ? (
+              <article className={`analytics-card analytics-awards-card ${isFocusedPlatform ? "analytics-awards-focused" : ""}`}>
+                <div className="analytics-card-header">
+                  <div>
+                    <h3>Unstop Badges</h3>
                     <span>{data.unstop.badges.length} live public badges fetched</span>
                   </div>
                 </div>

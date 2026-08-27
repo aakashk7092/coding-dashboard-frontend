@@ -21,6 +21,7 @@ import {
 } from "react-icons/fa";
 import { SiCodechef, SiLeetcode } from "react-icons/si";
 import profileImage from "../assets/profile.jpg";
+import logoImage from "../assets/logo.png";
 import { fetchActivity } from "../lib/api.js";
 import { emptyActivity, normalizeActivity } from "../lib/activityDefaults.js";
 
@@ -31,51 +32,44 @@ const projects = [
     status: "In Progress",
     category: "Production Architecture",
     description:
-      "A scalable freelancing platform connecting clients and freelancers with secure auth, role-based access, profiles, project posting, proposals, real-time notifications, and dashboards.",
+      "A scalable freelancing platform connecting clients and freelancers with secure authentication, role-based access, project posting, proposals, real-time notifications, and user dashboards.",
     stack: ["React", "NestJS", "PostgreSQL", "Prisma", "Redis", "JWT"],
-    impact: "Built around production-ready backend structure and responsive user flows.",
+    impact: "Engineered with modular backend architecture, role-based access, and real-time notification workflows.",
   },
   {
-  title: "BhaiyaLogic",
-  subtitle: "DSA Learning & Coding Practice Platform",
-  status: "Active Development",
-  category: "Full Stack",
-  description:
-    "A comprehensive DSA learning and coding platform featuring structured roadmaps, company-wise interview preparation, coding sheets, progress tracking, contests, handwritten notes, articles, coding profile integrations, and personalized learning dashboards for students preparing for software engineering interviews.",
-  stack: [
-    "React",
-    "Node.js",
-    "Express.js",
-    "MongoDB",
-    "Tailwind CSS"
-  ],
-  impact:
-    "Helps students learn DSA systematically, monitor progress, and prepare efficiently for product-based company interviews.",
-  liveLabel: "Visit BhaiyaLogic",
-  liveUrl: "https://bhaiyalogic.in",
-  githubUrl: "https://bhaiyalogic.in"
-},
+    title: "BhaiyaLogic",
+    subtitle: "DSA Learning & Coding Practice Platform",
+    status: "Active Development",
+    category: "Full Stack",
+    description:
+      "A comprehensive DSA practice platform featuring structured learning roadmaps, company-wise interview preparation, progress tracking, handwritten notes, and personalized practice dashboards.",
+    stack: ["React", "Node.js", "Express.js", "MongoDB", "Tailwind CSS"],
+    impact: "Provides systematic DSA roadmaps and progress analytics for technical software engineering interviews.",
+    liveLabel: "Visit BhaiyaLogic",
+    liveUrl: "https://bhaiyalogic.in",
+    githubUrl: "https://bhaiyalogic.in",
+  },
   {
     title: "Developer Analytics Dashboard",
     subtitle: "Unified Coding Activity Dashboard",
     status: "Built",
     category: "Analytics",
     description:
-      "A dashboard that aggregates GitHub, LeetCode, and CodeChef activity into one interface with commits, solved problems, streaks, ratings, and developer metrics.",
+      "A developer platform that aggregates GitHub commit activity, LeetCode problem streaks, and CodeChef contest ratings into unified analytics dashboards.",
     stack: ["React", "Node.js", "REST APIs"],
-    impact: "Gives recruiters a fast view of consistency, coding progress, and platform signals.",
+    impact: "Aggregates problem-solving streaks, commit metrics, and competitive ratings into clear technical signals.",
     liveLabel: "Open Dashboard",
     liveUrl: "/dashboard/recruiter",
   },
   {
     title: "VerdictOS",
-    subtitle: "AI Startup Validation Platform",
+    subtitle: "Startup Validation Platform",
     status: "Built",
     category: "AI Product",
     description:
-      "An AI-powered startup validation system that simulates a virtual boardroom of specialized agents for market research, competitor analysis, pricing, risks, MVP planning, growth, and investment verdicts.",
+      "An automated startup validation platform providing structured market research, competitor analysis, risk evaluation, pricing strategies, and MVP growth planning.",
     stack: ["React", "Node.js", "Google Gemini API", "Tavily API", "Express.js"],
-    impact: "Combines multiple AI perspectives into one business decision workflow.",
+    impact: "Combines market intelligence data into automated business validation reports.",
   },
   {
     title: "Rajpoot Associates Website",
@@ -83,9 +77,9 @@ const projects = [
     status: "Live",
     category: "Client Work",
     description:
-      "A fully responsive business website developed for a real client with service pages, contact functionality, SEO-friendly content, responsive design, and professional user experience.",
+      "A fully responsive production website built for a commercial client featuring service catalogs, inquiry workflows, SEO optimization, and mobile-first design.",
     stack: ["React", "Node.js", "MongoDB"],
-    impact: "Delivered and deployed for a real business online presence.",
+    impact: "Delivered and deployed a live commercial website for client business operations.",
     liveLabel: "Live Website",
     liveUrl: "https://rajpootassociates.in",
   },
@@ -95,9 +89,9 @@ const projects = [
     status: "Built",
     category: "IoT",
     description:
-      "An IoT-based inventory management system using ESP32 and RFID to track assets in real time, sync inventory records with Google Sheets, and monitor data through ThingsBoard.",
+      "An IoT-based inventory tracking system using ESP32 microcontrollers and RFID technology to monitor real-time asset movements, sync records with Google Sheets, and stream telemetry to ThingsBoard.",
     stack: ["ESP32", "MFRC522 RFID", "Arduino", "Google Sheets API", "ThingsBoard"],
-    impact: "Bridges embedded hardware, cloud sync, and operational tracking.",
+    impact: "Bridges embedded hardware sensors, cloud sync workflows, and operational tracking.",
   },
   {
     title: "Plant Disease Detection System",
@@ -105,9 +99,9 @@ const projects = [
     status: "Built",
     category: "AI/ML",
     description:
-      "An AI-powered application that detects plant diseases from leaf images using deep learning, helping identify crop issues early for better agricultural decision-making.",
+      "A computer vision application using deep Convolutional Neural Networks (CNNs) to detect plant diseases from leaf imagery, aiding early agricultural diagnosis.",
     stack: ["Python", "TensorFlow", "OpenCV", "CNN"],
-    impact: "Applies machine learning to a practical agriculture problem.",
+    impact: "Applies deep learning models to automated agricultural health diagnostics.",
   },
 ];
 
@@ -200,12 +194,12 @@ const achievements = [
 ];
 
 const homeNavLinks = [
-  { label: "Achievements", href: "#achievements", type: "anchor" },
-  { label: "Projects", href: "#projects", type: "anchor" },
-  { label: "Dashboard", href: "/dashboard", type: "route" },
-  { label: "Activity", href: "#activity", type: "anchor" },
-  { label: "Skills", href: "#skills", type: "anchor" },
-  { label: "Resume", href: "/resume.pdf", type: "external" },
+  { label: "Achievements", href: "#achievements", type: "anchor", icon: <FaAward /> },
+  { label: "Projects", href: "#projects", type: "anchor", icon: <FaRocket /> },
+  { label: "Dashboard", href: "/dashboard", type: "route", icon: <FaChartLine /> },
+  { label: "Activity", href: "#activity", type: "anchor", icon: <FaBolt /> },
+  { label: "Skills", href: "#skills", type: "anchor", icon: <FaBrain /> },
+  { label: "Resume", href: "/resume.pdf", type: "external", icon: <FaFileAlt /> },
 ];
 
 const connectLinks = [
@@ -251,22 +245,11 @@ function HomeNav() {
     <header className={`topbar topbar-home ${menuOpen ? "topbar-menu-open" : ""}`}>
       <div className="topbar-row">
         <Link className="brand" to="/" onClick={closeMenu}>
-          <span className="brand-mark">AK</span>
+          <img src={logoImage} alt="Aakash Kumar Logo" className="brand-logo-img" />
           <span className="brand-copy">
             <strong>Aakash Kumar</strong>
           </span>
         </Link>
-
-        <button
-          type="button"
-          className="topbar-toggle"
-          aria-expanded={menuOpen}
-          aria-controls="home-mobile-nav"
-          aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
-          onClick={() => setMenuOpen((current) => !current)}
-        >
-          {menuOpen ? <FaTimes /> : <FaBars />}
-        </button>
 
         <nav className="topnav topnav-desktop">
           {homeNavLinks.map((link) => {
@@ -296,33 +279,51 @@ function HomeNav() {
 
         <div className="topbar-actions topbar-actions-desktop">
           <Link className="nav-cta" to="/dashboard/recruiter">
-            Recruiter View
+            <FaBriefcase /> Recruiter View
           </Link>
         </div>
+
+        <button
+          type="button"
+          className="topbar-toggle"
+          aria-expanded={menuOpen}
+          aria-controls="home-mobile-nav"
+          aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
+          onClick={() => setMenuOpen((current) => !current)}
+        >
+          {menuOpen ? <FaTimes /> : <FaBars />}
+        </button>
       </div>
 
       <div id="home-mobile-nav" className={`topbar-mobile-panel ${menuOpen ? "is-open" : ""}`}>
         <nav className="topnav topnav-mobile">
           {homeNavLinks.map((link) => {
+            const itemContent = (
+              <>
+                <span className="nav-item-icon">{link.icon}</span>
+                <span className="nav-item-label">{link.label}</span>
+              </>
+            );
+
             if (link.type === "route") {
               return (
-                <Link key={link.label} to={link.href} onClick={closeMenu}>
-                  {link.label}
+                <Link key={link.label} to={link.href} onClick={closeMenu} className="nav-mobile-link">
+                  {itemContent}
                 </Link>
               );
             }
 
             if (link.type === "external") {
               return (
-                <a key={link.label} href={link.href} target="_blank" rel="noreferrer" onClick={closeMenu}>
-                  {link.label}
+                <a key={link.label} href={link.href} target="_blank" rel="noreferrer" onClick={closeMenu} className="nav-mobile-link">
+                  {itemContent}
                 </a>
               );
             }
 
             return (
-              <a key={link.label} href={link.href} onClick={closeMenu}>
-                {link.label}
+              <a key={link.label} href={link.href} onClick={closeMenu} className="nav-mobile-link">
+                {itemContent}
               </a>
             );
           })}
@@ -330,7 +331,7 @@ function HomeNav() {
 
         <div className="topbar-actions topbar-actions-mobile">
           <Link className="nav-cta" to="/dashboard/recruiter" onClick={closeMenu}>
-            Recruiter View
+            <FaBriefcase /> Recruiter View
           </Link>
         </div>
       </div>
@@ -480,8 +481,7 @@ export default function PortfolioHome() {
         <section className="section home-section-grid" id="achievements">
           <div className="section-heading home-section-heading">
             <div>
-              <p className="eyebrow">Achievements</p>
-              <h2>Proof of consistency, leadership, and execution</h2>
+              <h2>Achievements & Recognition</h2>
             </div>
             <a className="section-link" href="/resume.pdf" target="_blank" rel="noreferrer">
               View resume
@@ -504,8 +504,7 @@ export default function PortfolioHome() {
         <section className="section">
           <div className="section-heading">
             <div>
-              <p className="eyebrow">Connect</p>
-              <h2>Connect with me</h2>
+              <h2>Connect with Me</h2>
             </div>
           </div>
 
@@ -526,7 +525,7 @@ export default function PortfolioHome() {
         <section className="section home-section-grid">
           <div className="section-heading home-section-heading">
             <div>
-              <p className="eyebrow">Projects</p>
+              <h2>Featured Projects</h2>
             </div>
             <a className="section-link" href="#recruiter">
               Open for opportunities
@@ -576,7 +575,7 @@ export default function PortfolioHome() {
         <section className="section home-two-column">
           <div className="home-rail-card" id="activity">
             <div className="section-heading">
-              <p className="eyebrow">Activity</p>
+              <h2>Recent Activity</h2>
             </div>
 
             <div className="activity-list">
@@ -591,7 +590,7 @@ export default function PortfolioHome() {
 
           <div className="home-rail-card" id="skills">
             <div className="section-heading">
-              <p className="eyebrow">Skills</p>
+              <h2>Technical Skills</h2>
             </div>
 
             <div className="skills-groups">
@@ -611,7 +610,7 @@ export default function PortfolioHome() {
 
         <section className="section recruiter-section" id="recruiter">
           <div className="section-heading">
-            <p className="eyebrow">Recruiter</p>
+            <h2>Contact & Resume</h2>
           </div>
 
           <div className="recruiter-card">
